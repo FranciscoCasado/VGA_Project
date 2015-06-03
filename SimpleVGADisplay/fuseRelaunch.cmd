@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/K n z o/Documents/Xilinx/VGADriver/Fixture1_isim_beh.exe" -prj "C:/Users/K n z o/Documents/Xilinx/VGADriver/Fixture1_beh.prj" "work.Fixture1" "work.glbl" 

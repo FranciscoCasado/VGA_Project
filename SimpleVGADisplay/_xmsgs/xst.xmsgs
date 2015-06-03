@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="2337" delta="new" >&quot;<arg fmt="%s" index="1">TopModule.v</arg>&quot; line <arg fmt="%d" index="2">50</arg>: File argument of function <arg fmt="%s" index="3">$fdisplay</arg> is not constant. Skipping call to system function.
+</msg>
+
+<msg type="warning" file="Xst" num="2323" delta="new" >&quot;<arg fmt="%s" index="1">TopModule.v</arg>&quot; line <arg fmt="%d" index="2">76</arg>: Parameter <arg fmt="%d" index="3">2</arg> is not constant in call of system task <arg fmt="%s" index="4">$display</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="2323" delta="new" >&quot;<arg fmt="%s" index="1">TopModule.v</arg>&quot; line <arg fmt="%d" index="2">76</arg>: Parameter <arg fmt="%d" index="3">3</arg> is not constant in call of system task <arg fmt="%s" index="4">$display</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1872" delta="old" >Variable &lt;<arg fmt="%s" index="1">mon</arg>&gt; is used but never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">asd</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+</messages>

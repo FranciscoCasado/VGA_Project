@@ -1,0 +1,14 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Tue Jun 02 17:00:32 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "G" LOCATE = SITE "H15" LEVEL 1;
+COMP "B" LOCATE = SITE "G15" LEVEL 1;
+COMP "R" LOCATE = SITE "H14" LEVEL 1;
+COMP "CLK_IN" LOCATE = SITE "C9" LEVEL 1;
+COMP "H_SYNC" LOCATE = SITE "F15" LEVEL 1;
+COMP "V_SYNC" LOCATE = SITE "F14" LEVEL 1;
+NET "CLK_IN_BUFGP/IBUFG" BEL "CLK_IN_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

@@ -1,0 +1,20 @@
+
+
+
+// Instantiate the module
+ddr_model instance_name (
+    .Clk(Clk), 
+    .Clk_n(Clk_n), 
+    .Cke(Cke), 
+    .Cs_n(Cs_n), 
+    .Ras_n(Ras_n), 
+    .Cas_n(Cas_n), 
+    .We_n(We_n), 
+    .Ba(Ba), 
+    .Addr(Addr), 
+    .Dm(Dm), 
+    .Dq(Dq), 
+    .Dqs(Dqs)
+    );
+
+
