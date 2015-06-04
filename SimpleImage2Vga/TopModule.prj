@@ -1,3 +1,4 @@
+verilog work "ipcore_dir/img_buffer.v"
 verilog work "VgaDriver.v"
 verilog work "ImageController.v"
 verilog work "TopModule.v"

@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga/VgaDriver.v";
+static const char *ng0 = "C:/VGAProject/SimpleImage2Vga/VgaDriver.v";
 static const char *ng1 = "log.txt";
 static const char *ng2 = "w";
 static int ng3[] = {40, 0};

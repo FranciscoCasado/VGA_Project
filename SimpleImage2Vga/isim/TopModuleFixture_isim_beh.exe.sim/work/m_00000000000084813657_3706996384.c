@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga/TopModule.v";
+static const char *ng0 = "C:/VGAProject/SimpleImage2Vga/TopModule.v";
 
 
 

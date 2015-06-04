@@ -9,7 +9,7 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Wed Jun 03 23:38:19 2015
+Mapped Date    : Thu Jun 04 00:40:06 2015
 
 Design Summary
 --------------
@@ -17,25 +17,26 @@ Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
   Number of Slice Flip Flops:            21 out of   9,312    1%
-  Number of 4 input LUTs:                24 out of   9,312    1%
+  Number of 4 input LUTs:                45 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:             32 out of   4,656    1%
-    Number of Slices containing only related logic:      32 out of      32 100%
-    Number of Slices containing unrelated logic:          0 out of      32   0%
+  Number of occupied Slices:             45 out of   4,656    1%
+    Number of Slices containing only related logic:      45 out of      45 100%
+    Number of Slices containing unrelated logic:          0 out of      45   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          60 out of   9,312    1%
-    Number used as logic:                24
-    Number used as a route-thru:         36
+  Total Number of 4 input LUTs:          83 out of   9,312    1%
+    Number used as logic:                45
+    Number used as a route-thru:         38
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                  6 out of     232    2%
+  Number of RAMB16s:                      3 out of      20   15%
   Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                2.10
+Average Fanout of Non-Clock Nets:                2.53
 
-Peak Memory Usage:  245 MB
+Peak Memory Usage:  247 MB
 Total REAL time to MAP completion:  4 secs 
 Total CPU time to MAP completion:   4 secs 
 
@@ -81,19 +82,156 @@ Section 2 - Warnings
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network controller/mem/douta<6> has no load.
+INFO:LIT:395 - The above info message is repeated 4 more times for the following
+   (max. 5 shown):
+   controller/mem/douta<5>,
+   controller/mem/douta<3>,
+   controller/mem/douta<2>,
+   controller/mem/douta<0>
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   2 block(s) optimized away
+  13 block(s) removed
+   9 block(s) optimized away
+  28 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "controller/mem/douta<6>" is sourceless and has been removed.
+The signal "controller/mem/douta<5>" is sourceless and has been removed.
+The signal "controller/mem/douta<3>" is sourceless and has been removed.
+The signal "controller/mem/douta<2>" is sourceless and has been removed.
+The signal "controller/mem/douta<0>" is sourceless and has been removed.
+The signal "controller/mem/dina<7>" is sourceless and has been removed.
+The signal "controller/mem/dina<6>" is sourceless and has been removed.
+The signal "controller/mem/dina<5>" is sourceless and has been removed.
+The signal "controller/mem/dina<4>" is sourceless and has been removed.
+The signal "controller/mem/dina<3>" is sourceless and has been removed.
+The signal "controller/mem/dina<2>" is sourceless and has been removed.
+The signal "controller/mem/dina<1>" is sourceless and has been removed.
+The signal "controller/mem/dina<0>" is sourceless and has been removed.
+The signal "controller/mem/N1" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/bindec_a.bindec_inst_a/ENOUT_4_cmp_eq0000" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta5<3>" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta5<2>" is sourceless and has been removed.
+ Sourceless block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/has_mux_a.A/Mmux_dout_mux71" (ROM) removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta7" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta5<1>" is sourceless and has been removed.
+ Sourceless block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/has_mux_a.A/Mmux_dout_mux61" (ROM) removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta6" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta5<0>" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta0<3>" is sourceless and has been removed.
+ Sourceless block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/has_mux_a.A/Mmux_dout_mux41" (ROM) removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta3" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta0<2>" is sourceless and has been removed.
+ Sourceless block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/has_mux_a.A/Mmux_dout_mux31" (ROM) removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta2" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta0<1>" is sourceless and has been removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta0<0>" is sourceless and has been removed.
+ Sourceless block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/has_mux_a.A/Mmux_dout_mux11" (ROM) removed.
+The signal
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ram_douta" is sourceless and has been removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/bindec_a.bindec_inst_a/ENOUT_4_cmp_eq00001" (ROM) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[0].ram.r/s3_init.ram/dpram.dp1x1.ram" (RAMB16_S1_S1) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[1].ram.r/s3_init.ram/dpram.dp4x4.ram" (RAMB16_S4_S4) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[3].ram.r/s3_init.ram/dpram.dp1x1.ram" (RAMB16_S1_S1) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[4].ram.r/s3_init.ram/dpram.dp1x1.ram" (RAMB16_S1_S1) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[6].ram.r/s3_init.ram/dpram.dp4x4.ram" (RAMB16_S4_S4) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[7].ram.r/s3_init.ram/dpram.dp1x1.ram" (RAMB16_S1_S1) removed.
+Unused block
+"controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cst
+r/ramloop[8].ram.r/s3_init.ram/dpram.dp1x1.ram" (RAMB16_S1_S1) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
 GND 		XST_GND
 VCC 		XST_VCC
+LUT3
+		controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cs
+tr/has_mux_a.A/Mmux_dout_mux111
+   optimized to 0
+FDE
+		controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cs
+tr/has_mux_a.A/sel_pipe_0
+   optimized to 0
+FDE
+		controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cs
+tr/has_mux_a.A/sel_pipe_1
+   optimized to 0
+FDE
+		controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cs
+tr/has_mux_a.A/sel_pipe_2
+   optimized to 0
+INV
+		controller/mem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cs
+tr/ram_ena1_INV_0
+GND 		controller/mem/XST_GND
+VCC 		controller/mem/XST_VCC
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.

@@ -4,13 +4,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.36 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.37 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
  
 --> Reading design: TopModule.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -104,7 +104,9 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling verilog file "ipcore_dir/img_buffer.v" in library work
 Compiling verilog file "VgaDriver.v" in library work
+Module <img_buffer> compiled
 Compiling verilog file "ImageController.v" in library work
 Module <VgaDriver> compiled
 Compiling verilog file "TopModule.v" in library work
@@ -151,18 +153,15 @@ Analyzing module <VgaDriver> in library <work>.
 	V_FRONTP_LINES = 32'sb00000000000000000000000000001010
 	V_LINES = 32'sb00000000000000000000001000001001
 	V_PULSEW_LINES = 32'sb00000000000000000000000000000010
-WARNING:Xst:2337 - "VgaDriver.v" line 53: File argument of function $fdisplay is not constant. Skipping call to system function.
-WARNING:Xst:2323 - "VgaDriver.v" line 59: Parameter 2 is not constant in call of system task $display.
-WARNING:Xst:2323 - "VgaDriver.v" line 59: Parameter 3 is not constant in call of system task $display.
-"VgaDriver.v" line 59: $display : %d y %d
+WARNING:Xst:2337 - "VgaDriver.v" line 54: File argument of function $fdisplay is not constant. Skipping call to system function.
 WARNING:Xst:2323 - "VgaDriver.v" line 87: Parameter 2 is not constant in call of system task $display.
-WARNING:Xst:2323 - "VgaDriver.v" line 87: Parameter 3 is not constant in call of system task $display.
-"VgaDriver.v" line 87: $display : %d y %d
+"VgaDriver.v" line 87: $display : %d
 WARNING:Xst:905 - "VgaDriver.v" line 86: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <RGB_in>
 Module <VgaDriver> is correct for synthesis.
  
 Analyzing module <ImageController> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/img_buffer.v" line 22: Instantiating black box module <img_buffer>.
 Module <ImageController> is correct for synthesis.
  
 
@@ -202,16 +201,18 @@ Unit <VgaDriver> synthesized.
 
 Synthesizing Unit <ImageController>.
     Related source file is "ImageController.v".
-WARNING:Xst:647 - Input <CLK_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <FRAME_CLOCK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <x> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <y> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <x<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <y<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <x2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit adder carry out for signal <pixel_addr$addsub0000> created at line 18.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
 Unit <ImageController> synthesized.
 
 
 Synthesizing Unit <TopModule>.
     Related source file is "TopModule.v".
-WARNING:Xst:1780 - Signal <RGB_in> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <RGB<6:5>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <RGB<3:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <RGB<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -222,9 +223,10 @@ Unit <TopModule> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 6
+# Adders/Subtractors                                   : 7
  10-bit adder carry out                                : 2
  10-bit subtractor                                     : 4
+ 8-bit adder carry out                                 : 1
 # Counters                                             : 2
  10-bit up counter                                     : 2
 # Registers                                            : 1
@@ -239,16 +241,15 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1290 - Hierarchical block <controller> is unconnected in block <TopModule>.
-   It will be removed from the design.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 6
+# Adders/Subtractors                                   : 7
  10-bit adder carry out                                : 2
  10-bit subtractor                                     : 4
+ 8-bit adder carry out                                 : 1
 # Counters                                             : 2
  10-bit up counter                                     : 2
 # Registers                                            : 1
@@ -262,7 +263,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2170 - Unit TopModule : the following signal(s) form a combinatorial loop: memRGB<0>.
 
 Optimizing unit <TopModule> ...
 
@@ -308,19 +308,19 @@ Design Statistics
 # IOs                              : 6
 
 Cell Usage :
-# BELS                             : 140
+# BELS                             : 168
 #      GND                         : 1
-#      INV                         : 4
-#      LUT1                        : 36
-#      LUT2                        : 1
-#      LUT3                        : 3
-#      LUT4                        : 12
+#      INV                         : 6
+#      LUT1                        : 38
+#      LUT2                        : 4
+#      LUT3                        : 8
+#      LUT4                        : 21
 #      LUT4_D                      : 1
 #      LUT4_L                      : 2
-#      MUXCY                       : 38
-#      MUXF5                       : 1
+#      MUXCY                       : 40
+#      MUXF5                       : 3
 #      VCC                         : 1
-#      XORCY                       : 40
+#      XORCY                       : 43
 # FlipFlops/Latches                : 21
 #      FDR                         : 11
 #      FDRE                        : 10
@@ -329,6 +329,8 @@ Cell Usage :
 #      BUFGP                       : 1
 # IO Buffers                       : 5
 #      OBUF                        : 5
+# Others                           : 1
+#      img_buffer                  : 1
 =========================================================================
 
 Device utilization summary:
@@ -336,9 +338,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       33  out of   4656     0%  
+ Number of Slices:                       43  out of   4656     0%  
  Number of Slice Flip Flops:             21  out of   9312     0%  
- Number of 4 input LUTs:                 59  out of   9312     0%  
+ Number of 4 input LUTs:                 80  out of   9312     0%  
  Number of IOs:                           6
  Number of bonded IOBs:                   6  out of    232     2%  
  Number of GCLKs:                         2  out of     24     8%  
@@ -376,10 +378,10 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.346ns (Maximum Frequency: 119.818MHz)
+   Minimum period: 8.382ns (Maximum Frequency: 119.303MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 9.389ns
-   Maximum combinational path delay: No path found
+   Maximum output required time after clock: 9.705ns
+   Maximum combinational path delay: 4.991ns
 
 Timing Detail:
 --------------
@@ -387,10 +389,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'driver/PXL_CLK1'
-  Clock period: 8.346ns (frequency: 119.818MHz)
+  Clock period: 8.382ns (frequency: 119.303MHz)
   Total number of paths / destination ports: 2710 / 50
 -------------------------------------------------------------------------
-Delay:               8.346ns (Levels of Logic = 8)
+Delay:               8.382ns (Levels of Logic = 8)
   Source:            driver/V_COUNT_2 (FF)
   Destination:       driver/V_COUNT_9 (FF)
   Source Clock:      driver/PXL_CLK1 rising
@@ -400,19 +402,19 @@ Delay:               8.346ns (Levels of Logic = 8)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.591   0.808  driver/V_COUNT_2 (driver/V_COUNT_2)
+     FDRE:C->Q             6   0.591   0.844  driver/V_COUNT_2 (driver/V_COUNT_2)
      LUT1:I0->O            1   0.704   0.000  driver/Madd_V_COUNT_addsub0001_cy<2>_rt (driver/Madd_V_COUNT_addsub0001_cy<2>_rt)
      MUXCY:S->O            1   0.464   0.000  driver/Madd_V_COUNT_addsub0001_cy<2> (driver/Madd_V_COUNT_addsub0001_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  driver/Madd_V_COUNT_addsub0001_cy<3> (driver/Madd_V_COUNT_addsub0001_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  driver/Madd_V_COUNT_addsub0001_cy<4> (driver/Madd_V_COUNT_addsub0001_cy<4>)
      XORCY:CI->O           1   0.804   0.424  driver/Madd_V_COUNT_addsub0001_xor<5> (driver/V_COUNT_addsub0001<5>)
-     LUT4:I3->O            1   0.704   0.424  driver/V_COUNT_and0000143_SW0_SW0 (N12)
-     LUT4_L:I3->LO         1   0.704   0.104  driver/V_COUNT_and0000143_SW0 (N10)
+     LUT4:I3->O            1   0.704   0.424  driver/V_COUNT_and0000143_SW0_SW0 (N10)
+     LUT4_L:I3->LO         1   0.704   0.104  driver/V_COUNT_and0000143_SW0 (N8)
      LUT4:I3->O           10   0.704   0.882  driver/V_COUNT_and000057 (driver/V_COUNT_and0000)
      FDRE:R                    0.911          driver/V_COUNT_0
     ----------------------------------------
-    Total                      8.346ns (5.704ns logic, 2.642ns route)
-                                       (68.3% logic, 31.7% route)
+    Total                      8.382ns (5.704ns logic, 2.678ns route)
+                                       (68.1% logic, 31.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_IN'
@@ -437,38 +439,57 @@ Delay:               1.949ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'driver/PXL_CLK1'
-  Total number of paths / destination ports: 58 / 4
+  Total number of paths / destination ports: 232 / 14
 -------------------------------------------------------------------------
-Offset:              9.389ns (Levels of Logic = 5)
-  Source:            driver/V_COUNT_7 (FF)
-  Destination:       G (PAD)
+Offset:              9.705ns (Levels of Logic = 5)
+  Source:            driver/V_COUNT_4 (FF)
+  Destination:       B (PAD)
   Source Clock:      driver/PXL_CLK1 rising
 
-  Data Path: driver/V_COUNT_7 to G
+  Data Path: driver/V_COUNT_4 to B
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             4   0.591   0.762  driver/V_COUNT_7 (driver/V_COUNT_7)
-     LUT3:I0->O            1   0.704   0.424  driver/V_SYNC1_SW0 (N2)
-     LUT4:I3->O            2   0.704   0.622  driver/V_SYNC1 (driver/N21)
-     LUT4:I0->O            1   0.704   0.455  driver/RGB_and000099_SW1 (N16)
-     LUT4:I2->O            2   0.704   0.447  driver/RGB_and000099 (G_OBUF)
-     OBUF:I->O                 3.272          G_OBUF (G)
+     FDRE:C->Q             5   0.591   0.808  driver/V_COUNT_4 (driver/V_COUNT_4)
+     LUT4:I0->O            1   0.704   0.595  driver/RGB<1>219 (driver/RGB<1>219)
+     LUT4:I0->O            1   0.704   0.499  driver/RGB<1>2165_SW0 (N12)
+     LUT4:I1->O            6   0.704   0.704  driver/RGB<1>2165 (driver/N10)
+     LUT3:I2->O            1   0.704   0.420  driver/RGB<7>1 (R_OBUF)
+     OBUF:I->O                 3.272          R_OBUF (R)
     ----------------------------------------
-    Total                      9.389ns (6.679ns logic, 2.710ns route)
-                                       (71.1% logic, 28.9% route)
+    Total                      9.705ns (6.679ns logic, 3.026ns route)
+                                       (68.8% logic, 31.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               4.991ns (Levels of Logic = 2)
+  Source:            controller/mem:douta<1> (PAD)
+  Destination:       B (PAD)
+
+  Data Path: controller/mem:douta<1> to B
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    img_buffer:douta<1>    1   0.000   0.595  controller/mem (memRGB<1>)
+     LUT3:I0->O            1   0.704   0.420  driver/RGB<1>1 (B_OBUF)
+     OBUF:I->O                 3.272          B_OBUF (B)
+    ----------------------------------------
+    Total                      4.991ns (3.976ns logic, 1.015ns route)
+                                       (79.7% logic, 20.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 25.00 secs
-Total CPU time to Xst completion: 24.85 secs
+Total REAL time to Xst completion: 24.00 secs
+Total CPU time to Xst completion: 23.35 secs
  
 --> 
 
-Total memory usage is 257192 kilobytes
+Total memory usage is 257256 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   17 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

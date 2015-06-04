@@ -40,6 +40,16 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
+Clock CLK_IN to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+B           |   11.672(R)|CLK_IN_BUFGP      |   0.000|
+G           |   11.693(R)|CLK_IN_BUFGP      |   0.000|
+R           |   11.298(R)|CLK_IN_BUFGP      |   0.000|
+------------+------------+------------------+--------+
+
 Clock to Setup on destination clock CLK_IN
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
@@ -49,14 +59,14 @@ CLK_IN         |    2.211|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Jun 03 23:39:06 2015 
+Analysis completed Thu Jun 04 00:40:54 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 164 MB
+Peak Memory Usage: 165 MB
 
 
 
