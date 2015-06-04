@@ -1,6 +1,6 @@
 
 % For now only images in 160*240 . . .
-img = imread('c.bmp');
+img = imread('image.bmp');
 r_channel = img(:,:,1);
 g_channel = img(:,:,2);
 b_channel = img(:,:,3);
@@ -8,7 +8,7 @@ b_channel = img(:,:,3);
 
 file = fopen('memory.coe','w');
 
-fprintf( file, 'memory_initialization_radix=16;\n');
+fprintf( file, 'memory_initialization_radix=2;\n');
 fprintf( file, 'memory_initialization_vector=\n');
 
 r = '00000000';
