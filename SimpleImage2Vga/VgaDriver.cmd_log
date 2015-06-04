@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj SimpleImage2Vga -o "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga/VgaDriver.tfi" -lib work "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga//VgaDriver.v" -module VgaDriver -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 

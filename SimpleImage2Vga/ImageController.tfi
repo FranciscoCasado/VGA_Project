@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+ImageController instance_name (
+    .CLK_IN(CLK_IN), 
+    .FRAME_CLOCK(FRAME_CLOCK), 
+    .x(x), 
+    .y(y), 
+    .RGB(RGB)
+    );
+
+

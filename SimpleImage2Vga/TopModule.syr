@@ -1,0 +1,474 @@
+Release 13.4 - xst O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.37 secs
+ 
+--> Reading design: TopModule.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TopModule.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TopModule"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : TopModule
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "VgaDriver.v" in library work
+Compiling verilog file "ImageController.v" in library work
+Module <VgaDriver> compiled
+Compiling verilog file "TopModule.v" in library work
+Module <ImageController> compiled
+Module <TopModule> compiled
+No errors in compilation
+Analysis of file <"TopModule.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <TopModule> in library <work>.
+
+Analyzing hierarchy for module <VgaDriver> in library <work> with parameters.
+	H_BACKP_CLOCKS = "00000000000000000000000000110000"
+	H_CLOCKS = "00000000000000000000001100100000"
+	H_DISP_CLOCKS = "00000000000000000000001010000000"
+	H_FRONTP_CLOCKS = "00000000000000000000000000010000"
+	H_PULSEW_CLOCKS = "00000000000000000000000001100000"
+	V_BACKP_LINES = "00000000000000000000000000011101"
+	V_DISP_LINES = "00000000000000000000000111100000"
+	V_FRONTP_LINES = "00000000000000000000000000001010"
+	V_LINES = "00000000000000000000001000001001"
+	V_PULSEW_LINES = "00000000000000000000000000000010"
+
+Analyzing hierarchy for module <ImageController> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <TopModule>.
+Module <TopModule> is correct for synthesis.
+ 
+Analyzing module <VgaDriver> in library <work>.
+	H_BACKP_CLOCKS = 32'sb00000000000000000000000000110000
+	H_CLOCKS = 32'sb00000000000000000000001100100000
+	H_DISP_CLOCKS = 32'sb00000000000000000000001010000000
+	H_FRONTP_CLOCKS = 32'sb00000000000000000000000000010000
+	H_PULSEW_CLOCKS = 32'sb00000000000000000000000001100000
+	V_BACKP_LINES = 32'sb00000000000000000000000000011101
+	V_DISP_LINES = 32'sb00000000000000000000000111100000
+	V_FRONTP_LINES = 32'sb00000000000000000000000000001010
+	V_LINES = 32'sb00000000000000000000001000001001
+	V_PULSEW_LINES = 32'sb00000000000000000000000000000010
+WARNING:Xst:2337 - "VgaDriver.v" line 53: File argument of function $fdisplay is not constant. Skipping call to system function.
+WARNING:Xst:2323 - "VgaDriver.v" line 59: Parameter 2 is not constant in call of system task $display.
+WARNING:Xst:2323 - "VgaDriver.v" line 59: Parameter 3 is not constant in call of system task $display.
+"VgaDriver.v" line 59: $display : %d y %d
+WARNING:Xst:2323 - "VgaDriver.v" line 87: Parameter 2 is not constant in call of system task $display.
+WARNING:Xst:2323 - "VgaDriver.v" line 87: Parameter 3 is not constant in call of system task $display.
+"VgaDriver.v" line 87: $display : %d y %d
+WARNING:Xst:905 - "VgaDriver.v" line 86: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <RGB_in>
+Module <VgaDriver> is correct for synthesis.
+ 
+Analyzing module <ImageController> in library <work>.
+Module <ImageController> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <VgaDriver>.
+    Related source file is "VgaDriver.v".
+WARNING:Xst:1872 - Variable <mon> is used but never assigned.
+    Found 32-bit up accumulator for signal <count>.
+    Found 10-bit up counter for signal <H_COUNT>.
+    Found 10-bit adder carry out for signal <H_COUNT$addsub0000> created at line 60.
+    Found 10-bit comparator less for signal <H_SYNC$cmp_lt0000> created at line 72.
+    Found 1-bit register for signal <PXL_CLK>.
+    Found 10-bit comparator greatequal for signal <RGB$cmp_ge0000> created at line 89.
+    Found 10-bit comparator greatequal for signal <RGB$cmp_ge0001> created at line 89.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0000> created at line 89.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0001> created at line 89.
+    Found 10-bit up counter for signal <V_COUNT>.
+    Found 10-bit adder carry out for signal <V_COUNT$addsub0001> created at line 63.
+    Found 10-bit comparator less for signal <V_SYNC$cmp_lt0000> created at line 73.
+    Found 10-bit subtractor for signal <xCoord$addsub0000> created at line 75.
+    Found 10-bit subtractor for signal <xCoord$addsub0001> created at line 75.
+    Found 10-bit subtractor for signal <yCoord$addsub0000> created at line 78.
+    Found 10-bit subtractor for signal <yCoord$addsub0001> created at line 78.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 Accumulator(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <VgaDriver> synthesized.
+
+
+Synthesizing Unit <ImageController>.
+    Related source file is "ImageController.v".
+WARNING:Xst:647 - Input <CLK_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FRAME_CLOCK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <x> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <y> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <ImageController> synthesized.
+
+
+Synthesizing Unit <TopModule>.
+    Related source file is "TopModule.v".
+WARNING:Xst:1780 - Signal <RGB_in> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <RGB<6:5>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <RGB<3:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <RGB<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <TopModule> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 6
+ 10-bit adder carry out                                : 2
+ 10-bit subtractor                                     : 4
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 1
+ 1-bit register                                        : 1
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator less                                : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <controller> is unconnected in block <TopModule>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 6
+ 10-bit adder carry out                                : 2
+ 10-bit subtractor                                     : 4
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator less                                : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2170 - Unit TopModule : the following signal(s) form a combinatorial loop: memRGB<0>.
+
+Optimizing unit <TopModule> ...
+
+Optimizing unit <VgaDriver> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block TopModule, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : TopModule.ngr
+Top Level Output File Name         : TopModule
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 6
+
+Cell Usage :
+# BELS                             : 140
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 36
+#      LUT2                        : 1
+#      LUT3                        : 3
+#      LUT4                        : 12
+#      LUT4_D                      : 1
+#      LUT4_L                      : 2
+#      MUXCY                       : 38
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 40
+# FlipFlops/Latches                : 21
+#      FDR                         : 11
+#      FDRE                        : 10
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 5
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       33  out of   4656     0%  
+ Number of Slice Flip Flops:             21  out of   9312     0%  
+ Number of 4 input LUTs:                 59  out of   9312     0%  
+ Number of IOs:                           6
+ Number of bonded IOBs:                   6  out of    232     2%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+driver/PXL_CLK1                    | BUFG                   | 20    |
+CLK_IN                             | BUFGP                  | 1     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.346ns (Maximum Frequency: 119.818MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 9.389ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'driver/PXL_CLK1'
+  Clock period: 8.346ns (frequency: 119.818MHz)
+  Total number of paths / destination ports: 2710 / 50
+-------------------------------------------------------------------------
+Delay:               8.346ns (Levels of Logic = 8)
+  Source:            driver/V_COUNT_2 (FF)
+  Destination:       driver/V_COUNT_9 (FF)
+  Source Clock:      driver/PXL_CLK1 rising
+  Destination Clock: driver/PXL_CLK1 rising
+
+  Data Path: driver/V_COUNT_2 to driver/V_COUNT_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             5   0.591   0.808  driver/V_COUNT_2 (driver/V_COUNT_2)
+     LUT1:I0->O            1   0.704   0.000  driver/Madd_V_COUNT_addsub0001_cy<2>_rt (driver/Madd_V_COUNT_addsub0001_cy<2>_rt)
+     MUXCY:S->O            1   0.464   0.000  driver/Madd_V_COUNT_addsub0001_cy<2> (driver/Madd_V_COUNT_addsub0001_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Madd_V_COUNT_addsub0001_cy<3> (driver/Madd_V_COUNT_addsub0001_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Madd_V_COUNT_addsub0001_cy<4> (driver/Madd_V_COUNT_addsub0001_cy<4>)
+     XORCY:CI->O           1   0.804   0.424  driver/Madd_V_COUNT_addsub0001_xor<5> (driver/V_COUNT_addsub0001<5>)
+     LUT4:I3->O            1   0.704   0.424  driver/V_COUNT_and0000143_SW0_SW0 (N12)
+     LUT4_L:I3->LO         1   0.704   0.104  driver/V_COUNT_and0000143_SW0 (N10)
+     LUT4:I3->O           10   0.704   0.882  driver/V_COUNT_and000057 (driver/V_COUNT_and0000)
+     FDRE:R                    0.911          driver/V_COUNT_0
+    ----------------------------------------
+    Total                      8.346ns (5.704ns logic, 2.642ns route)
+                                       (68.3% logic, 31.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_IN'
+  Clock period: 1.949ns (frequency: 513.084MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.949ns (Levels of Logic = 0)
+  Source:            driver/PXL_CLK (FF)
+  Destination:       driver/PXL_CLK (FF)
+  Source Clock:      CLK_IN rising
+  Destination Clock: CLK_IN rising
+
+  Data Path: driver/PXL_CLK to driver/PXL_CLK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.447  driver/PXL_CLK (driver/PXL_CLK1)
+     FDR:R                     0.911          driver/PXL_CLK
+    ----------------------------------------
+    Total                      1.949ns (1.502ns logic, 0.447ns route)
+                                       (77.1% logic, 22.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'driver/PXL_CLK1'
+  Total number of paths / destination ports: 58 / 4
+-------------------------------------------------------------------------
+Offset:              9.389ns (Levels of Logic = 5)
+  Source:            driver/V_COUNT_7 (FF)
+  Destination:       G (PAD)
+  Source Clock:      driver/PXL_CLK1 rising
+
+  Data Path: driver/V_COUNT_7 to G
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             4   0.591   0.762  driver/V_COUNT_7 (driver/V_COUNT_7)
+     LUT3:I0->O            1   0.704   0.424  driver/V_SYNC1_SW0 (N2)
+     LUT4:I3->O            2   0.704   0.622  driver/V_SYNC1 (driver/N21)
+     LUT4:I0->O            1   0.704   0.455  driver/RGB_and000099_SW1 (N16)
+     LUT4:I2->O            2   0.704   0.447  driver/RGB_and000099 (G_OBUF)
+     OBUF:I->O                 3.272          G_OBUF (G)
+    ----------------------------------------
+    Total                      9.389ns (6.679ns logic, 2.710ns route)
+                                       (71.1% logic, 28.9% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 24.85 secs
+ 
+--> 
+
+Total memory usage is 257192 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   17 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
