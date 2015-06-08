@@ -45,9 +45,14 @@ Clock CLK_IN to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-B           |   11.672(R)|CLK_IN_BUFGP      |   0.000|
-G           |   11.693(R)|CLK_IN_BUFGP      |   0.000|
-R           |   11.298(R)|CLK_IN_BUFGP      |   0.000|
+B<0>        |   13.895(R)|CLK_IN_BUFGP      |   0.000|
+B<1>        |   13.366(R)|CLK_IN_BUFGP      |   0.000|
+G<0>        |   13.320(R)|CLK_IN_BUFGP      |   0.000|
+G<1>        |   13.618(R)|CLK_IN_BUFGP      |   0.000|
+G<2>        |   13.379(R)|CLK_IN_BUFGP      |   0.000|
+R<0>        |   14.131(R)|CLK_IN_BUFGP      |   0.000|
+R<1>        |   14.300(R)|CLK_IN_BUFGP      |   0.000|
+R<2>        |   13.457(R)|CLK_IN_BUFGP      |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock CLK_IN
@@ -55,18 +60,18 @@ Clock to Setup on destination clock CLK_IN
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_IN         |    2.211|         |         |         |
+CLK_IN         |    2.232|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Thu Jun 04 00:40:54 2015 
+Analysis completed Mon Jun 08 18:44:14 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 165 MB
+Peak Memory Usage: 167 MB
 
 
 

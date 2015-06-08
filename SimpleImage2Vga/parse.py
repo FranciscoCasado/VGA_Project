@@ -1,10 +1,10 @@
 
-
 def removeblanks(line):
     if line[0]==" ":
         return removeblanks(line[1:])
     return line
         
+print "Formating log file . . ."
 
 source = open("log.txt","r")
 output = open("log_out.txt","w")

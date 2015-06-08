@@ -1,14 +1,19 @@
 //! **************************************************************************
-// Written by: Map O.87xd on Thu Jun 04 00:40:10 2015
+// Written by: Map O.87xd on Mon Jun 08 18:43:27 2015
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "H_SYNC" LOCATE = SITE "F15" LEVEL 1;
+COMP "H_SYNC" LOCATE = SITE "B6" LEVEL 1;
+COMP "B<0>" LOCATE = SITE "E7" LEVEL 1;
 COMP "CLK_IN" LOCATE = SITE "C9" LEVEL 1;
-COMP "V_SYNC" LOCATE = SITE "F14" LEVEL 1;
-COMP "B" LOCATE = SITE "G15" LEVEL 1;
-COMP "G" LOCATE = SITE "H15" LEVEL 1;
-COMP "R" LOCATE = SITE "H14" LEVEL 1;
+COMP "B<1>" LOCATE = SITE "F7" LEVEL 1;
+COMP "R<0>" LOCATE = SITE "B4" LEVEL 1;
+COMP "R<1>" LOCATE = SITE "A4" LEVEL 1;
+COMP "R<2>" LOCATE = SITE "D5" LEVEL 1;
+COMP "G<0>" LOCATE = SITE "D7" LEVEL 1;
+COMP "G<1>" LOCATE = SITE "C7" LEVEL 1;
+COMP "V_SYNC" LOCATE = SITE "A6" LEVEL 1;
+COMP "G<2>" LOCATE = SITE "F8" LEVEL 1;
 NET "CLK_IN_BUFGP/IBUFG" BEL "CLK_IN_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 SCHEMATIC END;
 

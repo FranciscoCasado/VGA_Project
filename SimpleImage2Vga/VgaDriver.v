@@ -50,13 +50,13 @@ module VgaDriver(
 	always @( posedge CLK_IN )
 	begin
 		PXL_CLK <= ~PXL_CLK;
-		count <= count + 40;
-		$fdisplay(mon,"%d ns: %b %b %b00 %b00 %b00",count,H_SYNC,V_SYNC,RGB[7],RGB[4],RGB[1]);
 	end
 
 	// Generates Horizontal and Vertical Counters to track screen position
 	always @( posedge PXL_CLK )
 	begin
+		count <= count + 40;
+		$fdisplay(mon,"%d ns: %b %b %b %b %b",count,H_SYNC,V_SYNC,RGB[7:5],RGB[4:2],RGB[1:0]);
 		if( H_COUNT + 1 == H_CLOCKS )
 		begin
 			H_COUNT <= 0;
@@ -95,7 +95,7 @@ module VgaDriver(
 		end
 		else
 		begin
-			RGB <= 3'b101;
+			RGB <= 8'b00011100;
 		end
 	end
 

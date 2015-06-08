@@ -30,17 +30,17 @@ module TopModuleFixture;
 	// Outputs
 	wire H_SYNC;
 	wire V_SYNC;
-	wire R;
-	wire G;
-	wire B;
-
+	wire [2:0] R;
+	wire [2:0] G;
+	wire [1:0] B;
+	
 	// Instantiate the Unit Under Test (UUT)
 	TopModule uut (
 		.CLK_IN(CLK_IN), 
 		.H_SYNC(H_SYNC), 
 		.V_SYNC(V_SYNC), 
-		.R(R), 
-		.G(G), 
+		.R(R),
+		.G(G),
 		.B(B)
 	);
 
@@ -51,7 +51,7 @@ module TopModuleFixture;
 	end
 	
 	always
-		#1 CLK_IN = ~CLK_IN;
+		#10 CLK_IN = ~CLK_IN;
       
 endmodule
 

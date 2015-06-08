@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-06-04T00:34:43</DateModified>
+  <DateModified>2015-06-08T17:23:54</DateModified>
   <ModuleName>TopModule</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-06-04T17:15:05</SummaryTimeStamp>
   <SavedFilePath>C:/VGAProject/SimpleImage2Vga/iseconfig/TopModule.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/VGAProject/SimpleImage2Vga</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/VGAProject/SimpleImage2Vga\</ImplementationReportsDirectory>
   <DateInitialized>2015-06-04T00:17:17</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

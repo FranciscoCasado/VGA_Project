@@ -48,8 +48,8 @@ module DriverFixture;
 
 	initial begin
 		// Initialize Inputs
-		CLK_IN = 0;
-		RGB_in = 8'b10000000;
+		CLK_IN = 8'b00000000;
+		RGB_in = 8'b11100011;
 		// Wait 100 ns for global reset to finis
         
 		// Add stimulus here

@@ -13,6 +13,7 @@ module ImageController(
 	wire [14:0] pixel_addr;
 	wire wen;
 	
+	//Adjust 640*480 to 160*120
 	assign x1 = x[9:2];
 	assign y1 = y[9:2];
 	assign pixel_addr = 160*y1 + x1;

@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\K n z o\Documents\Xilinx\SimpleImage2Vga\TopModule.ncd
-OUTFILE=C:\Users\K n z o\Documents\Xilinx\SimpleImage2Vga\TopModule.bit
+INFILE=C:\VGAProject\SimpleImage2Vga\TopModule.ncd
+OUTFILE=C:\VGAProject\SimpleImage2Vga\TopModule.bit
 FAMILY=Spartan3E
 PART=xc3s500e-4fg320
-WORKINGDIR=C:\Users\K n z o\Documents\Xilinx\SimpleImage2Vga
+WORKINGDIR=C:\VGAProject\SimpleImage2Vga
 LICENSE=WebPack
 USER_INFO=210748332_0_0_951
