@@ -1,0 +1,5 @@
+MO VgaDriver NULL VGA_Driver.v vlg36/_vga_driver.bin 1433891452
+MO top_module NULL top_module.v vlg2C/top__module.bin 1433891452
+MO canvas NULL ipcore_dir/canvas.v vlg64/canvas.bin 1433891452
+MO MemControl NULL MemControl.v vlg10/_mem_control.bin 1433891452
+MO Cursor NULL Cursor.v vlg06/_cursor.bin 1433891452
