@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/VGAProject/PaletteDisplay256/TopModuleFixture_isim_beh.exe" -prj "C:/VGAProject/PaletteDisplay256/TopModuleFixture_beh.prj" "work.TopModuleFixture" "work.glbl" 

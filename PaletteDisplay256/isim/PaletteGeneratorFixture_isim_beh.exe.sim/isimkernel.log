@@ -1,0 +1,29 @@
+Command line:
+   PaletteGeneratorFixture_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  53133
+
+Mon Jun 08 22:12:37 2015
+
+
+ Elaboration Time: 0.078002 sec
+
+ Current Memory Usage: 505.356 Meg
+
+ Total Signals          : 22
+ Total Nets             : 67
+ Total Signal Drivers   : 15
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 19
+ Total Traceable Variables  : 22
+ Total Scalar Nets and Variables : 169
+Total Line Count : 36
+
+ Total Simulation Time: 2.19962 sec
+
+ Current Memory Usage: 505.356 Meg
+
+Mon Jun 08 22:13:41 2015
+
