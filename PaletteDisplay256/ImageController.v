@@ -12,9 +12,9 @@ module ImageController(
 	wire [7:0] y1;
 	wire [7:0] block;
 	
-	assign memRGB[7:5] = block[2:0];
-	assign memRGB[4:2] = block[5:3];
-	assign memRGB[1:0] = block[7:6];
+	assign memRGB[7:5] = block[2:0]; // red
+	assign memRGB[4:2] = block[5:3]; // green
+	assign memRGB[1:0] = block[7:6]; // blue
 
 	assign x1 = x[9:5];
 	assign y1 = y[9:5];

@@ -26,7 +26,7 @@ module TopModule(
 
 	
 	assign R = RGB[7:5];
-	assign G =  3'b101; //mygreen; //RGB[4:2];
+	assign G = RGB[4:2]; //mygreen; //;
 	assign B = RGB[1:0];
 	
 	VgaDriver driver(

@@ -91,11 +91,13 @@ module VgaDriver(
 			 V_COUNT >= V_PULSEW_LINES  + V_FRONTP_LINES  &&
 			 V_COUNT <  V_LINES         - V_BACKP_LINES)
 		begin
-			RGB <= RGB_in;
+			RGB[7:5] <= RGB_in[7:5]; // red
+			RGB[4:2] <= RGB_in[4:2];
+			RGB[1:0] <= RGB_in[1:0];
 		end
 		else
 		begin
-			RGB <= 8'b00011100;
+			RGB <= 8'b00000000;
 		end
 	end
 
