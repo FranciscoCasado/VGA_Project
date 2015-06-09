@@ -23,6 +23,8 @@ module TopModule(
 	wire [9:0] xCoord;
 	wire [9:0] yCoord;
 	
+
+	
 	assign R = RGB[7:5];
 	assign G = RGB[4:2];
 	assign B = RGB[1:0];
