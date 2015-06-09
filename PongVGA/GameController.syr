@@ -1,0 +1,311 @@
+Release 13.4 - xst O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.27 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
+ 
+--> Reading design: GameController.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "GameController.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "GameController"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : GameController
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "GameController.v" in library work
+Module <GameController> compiled
+No errors in compilation
+Analysis of file <"GameController.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <GameController> in library <work> with parameters.
+	H = "00000000000000000000000000001111"
+	W = "00000000000000000000000000010100"
+	playerSize = "00000000000000000000000000000100"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <GameController>.
+	H = 32'sb00000000000000000000000000001111
+	W = 32'sb00000000000000000000000000010100
+	playerSize = 32'sb00000000000000000000000000000100
+Module <GameController> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <GameController>.
+    Related source file is "GameController.v".
+WARNING:Xst:653 - Signal <comPos> is used but never assigned. This sourceless signal will be automatically connected to value 0111.
+WARNING:Xst:1780 - Signal <ballVY<1:0>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <ballVX<1:0>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ballNextY> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ballNextX> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4-bit adder carry out for signal <add0000$addsub0000> created at line 95.
+    Found 4-bit adder carry out for signal <add0001$addsub0000> created at line 112.
+    Found 1-bit register for signal <ballVX<2>>.
+    Found 1-bit register for signal <ballVY<2>>.
+    Found 5-bit register for signal <ballX>.
+    Found 4-bit comparator greater for signal <ballX$cmp_gt0000> created at line 95.
+    Found 4-bit comparator greater for signal <ballX$cmp_gt0001> created at line 112.
+    Found 5-bit comparator less for signal <ballX$cmp_lt0000> created at line 95.
+    Found 5-bit comparator less for signal <ballX$cmp_lt0001> created at line 112.
+    Found 4-bit register for signal <ballY>.
+    Found 5-bit adder for signal <old_ballNextX_3$add0000> created at line 83.
+    Found 5-bit subtractor for signal <old_ballNextX_3$sub0000> created at line 83.
+    Found 4-bit adder for signal <old_ballNextY_5$add0000> created at line 84.
+    Found 4-bit subtractor for signal <old_ballNextY_5$sub0000> created at line 84.
+    Found 4-bit adder for signal <old_playerPos_1$add0001> created at line 61.
+    Found 4-bit adder carry out for signal <old_playerPos_1$addsub0000> created at line 60.
+    Found 4-bit comparator greater for signal <old_playerPos_1$cmp_gt0000> created at line 58.
+    Found 5-bit comparator less for signal <old_playerPos_1$cmp_lt0000> created at line 60.
+    Found 4-bit subtractor for signal <old_playerPos_1$sub0000> created at line 59.
+    Found 4-bit adder for signal <old_playerPos_4$add0001> created at line 69.
+    Found 4-bit adder carry out for signal <old_playerPos_4$addsub0000> created at line 68.
+    Found 5-bit comparator less for signal <old_playerPos_4$cmp_lt0000> created at line 68.
+    Found 4-bit subtractor for signal <old_playerPos_4$sub0000> created at line 67.
+    Found 4-bit register for signal <playerPos>.
+    Summary:
+	inferred  15 D-type flip-flop(s).
+	inferred  12 Adder/Subtractor(s).
+	inferred   7 Comparator(s).
+Unit <GameController> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 12
+ 4-bit adder                                           : 3
+ 4-bit adder carry out                                 : 4
+ 4-bit subtractor                                      : 3
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+# Registers                                            : 5
+ 1-bit register                                        : 2
+ 4-bit register                                        : 2
+ 5-bit register                                        : 1
+# Comparators                                          : 7
+ 4-bit comparator greater                              : 3
+ 5-bit comparator less                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <GameController> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block GameController, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : GameController.ngr
+Top Level Output File Name         : GameController
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 3
+
+Cell Usage :
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                        0  out of   4656     0%  
+ Number of IOs:                           3
+ Number of bonded IOBs:                   0  out of    232     0%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 21.00 secs
+Total CPU time to Xst completion: 21.35 secs
+ 
+--> 
+
+Total memory usage is 254632 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    5 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

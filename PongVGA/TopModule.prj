@@ -1,0 +1,4 @@
+verilog work "VgaDriver.v"
+verilog work "GameController.v"
+verilog work "GameBuilder.v"
+verilog work "TopModule.v"
