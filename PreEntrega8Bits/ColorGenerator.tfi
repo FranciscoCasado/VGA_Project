@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+ColorGenerator instance_name (
+    .SWTICHES(SWTICHES), 
+    .button(button), 
+    .RGB_out(RGB_out)
+    );
+
+

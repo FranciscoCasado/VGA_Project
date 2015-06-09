@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PreEntrega8Bits -o C:/VGAProject/PreEntrega8Bits/ColorGenerator.tfi -lib work C:/VGAProject/PreEntrega8Bits//ColorGenerator.v -module ColorGenerator -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -1,0 +1,21 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Mon Jun 08 23:41:48 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "SW<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "SW<2>" LOCATE = SITE "H18" LEVEL 1;
+COMP "CLK_IN" LOCATE = SITE "C9" LEVEL 1;
+COMP "LED<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "E12" LEVEL 1;
+COMP "LED<2>" LOCATE = SITE "E11" LEVEL 1;
+COMP "LED<3>" LOCATE = SITE "F11" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "C11" LEVEL 1;
+COMP "LED<5>" LOCATE = SITE "D11" LEVEL 1;
+COMP "LED<6>" LOCATE = SITE "E9" LEVEL 1;
+COMP "LED<7>" LOCATE = SITE "F9" LEVEL 1;
+COMP "BUTTON" LOCATE = SITE "V4" LEVEL 1;
+COMP "SW<0>" LOCATE = SITE "L13" LEVEL 1;
+NET "CLK_IN_BUFGP/IBUFG" BEL "CLK_IN_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

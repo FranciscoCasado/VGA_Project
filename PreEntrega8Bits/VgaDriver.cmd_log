@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj PreEntrega8Bits -o C:/VGAProject/PreEntrega8Bits/VgaDriver.tfi -lib work C:/VGAProject/PreEntrega8Bits//VgaDriver.v -module VgaDriver -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 
