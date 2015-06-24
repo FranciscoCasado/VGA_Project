@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\PC9-Electronica\Desktop\vgaproject\PaintVGA\top_module.ncd
-OUTFILE=C:\Users\PC9-Electronica\Desktop\vgaproject\PaintVGA\top_module.bit
-FAMILY=Spartan3E
-PART=xc3s500e-4fg320
-WORKINGDIR=C:\Users\PC9-Electronica\Desktop\vgaproject\PaintVGA
-LICENSE=WebPack
-USER_INFO=210748332_0_0_951

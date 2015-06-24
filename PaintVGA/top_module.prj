@@ -1,5 +1,0 @@
-verilog work "VGA_Driver.v"
-verilog work "MemControl.v"
-verilog work "ipcore_dir/canvas.v"
-verilog work "Cursor.v"
-verilog work "top_module.v"
