@@ -1,3 +1,0 @@
-verilog work "VgaDriver.v"
-verilog work "ColorGenerator.v"
-verilog work "TopModule.v"
