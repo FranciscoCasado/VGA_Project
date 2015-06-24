@@ -34,6 +34,7 @@ module GameController(
 	 output [7:0] comXPos_out
     );
 	 
+	// Actor positions are the uper left corner !
 	parameter H = 120;
 	parameter W = 160;
 	parameter block = 4;
@@ -89,18 +90,18 @@ module GameController(
 			else if( comAction && comYPos + playerSize <= H - 1 )
 				comYPos = comYPos + 1;
 		end
-		/*
+		
 		// Pre calculate Next Ball Pos without players
 		// Goal Conditions
-		if( ballX == 0 || ballX == W - 1 )
+		if( ballX == 0 || ballX == W - 1 - block )
 		begin
-			ballNextX = 10;
-			ballNextY = 7;
+			ballNextX = 80;
+			ballNextY = 60;
 		end
 		// Wall Collision
-		else if( ballY == 0 || ballY == H - 1)
+		else if( ballY == 0 || ballY == H - 1 - block)
 		begin
-			ballVY[2] = ~ballVY[2];
+			ballVY[2]     = ~ballVY[2];
 			ballNextX     = ( ballVX[2] == 0 ) ? ballX - 1 : ballX + 1;
 			ballNextY     = ( ballVY[2] == 0 ) ? ballY - 1 : ballY + 1;
 		end
@@ -113,7 +114,7 @@ module GameController(
 		// Check whether a collision may occur with player
 		if( ballNextX == 0 && ballVX[2] == 0 )
 		begin
-			if( playerPos > ballNextY || playerPos + playerSize < ballNextY )
+			if( playerYPos > ballNextY || playerYPos + playerSize < ballNextY )
 			begin
 				// Ball Escaped Collision
 				ballX = ballNextX;
@@ -128,9 +129,9 @@ module GameController(
 			end
 		end
 		// Check whether a collision may occur with com
-		else if( ballNextX == W - 1 && ballVX[2] == 1 )
+		else if( ballNextX == W - 1 - block && ballVX[2] == 1 )
 		begin
-			if( comPos > ballNextY || comPos + playerSize < ballNextY )
+			if( comYPos > ballNextY || comYPos + playerSize < ballNextY )
 			begin
 				// Ball Escaped Collision
 				ballX = ballNextX;
@@ -149,7 +150,6 @@ module GameController(
 			ballX = ballNextX;
 			ballY = ballNextY;
 		end
-		*/
 	end
 	
 
