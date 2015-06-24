@@ -45,6 +45,8 @@ module TopModule(
 	wire [9:0] x;
 	wire [9:0] y;
 	
+	wire [3:0] score;
+	
 	reg GAME_CLOCK;
 	
 	
@@ -56,7 +58,8 @@ module TopModule(
 	 .playerYPos_out(playerYPos),
 	 .comYPos_out(comYPos),
 	 .ballX_out(ballX),
-	 .ballY_out(ballY)
+	 .ballY_out(ballY),
+	 .score(score)
     );
 
 	GameBuilder builder(
@@ -69,7 +72,8 @@ module TopModule(
 	 .comYPos(comYPos),
 	 .ballX(ballX),
 	 .ballY(ballY),
-    .RGB_out(RGB_tmp)
+    .RGB_out(RGB_tmp),
+	 .score(score)
     );
 
 

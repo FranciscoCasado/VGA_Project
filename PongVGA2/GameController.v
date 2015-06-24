@@ -31,7 +31,8 @@ module GameController(
 	 output [6:0] playerYPos_out,
 	 output [6:0] comYPos_out,
 	 output [7:0] playerXPos_out,
-	 output [7:0] comXPos_out
+	 output [7:0] comXPos_out,
+	 output [3:0] score
     );
 	 
 	// Actor positions are the uper left corner !
@@ -51,6 +52,9 @@ module GameController(
 	
 	reg  [6:0] playerYPos  = 0;
 	reg  [6:0] comYPos     = 0;
+	
+	reg [3:0] score_reg = 4'b0000;
+	assign score = score_reg;
 	
 	wire [7:0] playerXPos;
 	wire [7:0] comXPos;
@@ -97,6 +101,7 @@ module GameController(
 		begin
 			ballNextX = 80;
 			ballNextY = 60;
+			score_reg = score_reg + 1;
 		end
 		// Wall Collision
 		else if( ballY == 0 || ballY == H - 1 - block)
