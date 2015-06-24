@@ -28,7 +28,8 @@ module GameBuilder(
 	input wire [6:0] comYPos,
 	input wire [9:0] xCoord,
 	input wire [9:0] yCoord,
-	input wire [3:0] score,
+	input wire [3:0] playerScore,
+	input wire [3:0] comScore,
 	output reg [7:0] RGB_out
 	);
 	
@@ -43,46 +44,80 @@ module GameBuilder(
 	
 	parameter H = 120;
    parameter W = 160;
+	
+	parameter playerScoreLabelXPosition = 74;
+	parameter playerScoreLabelYPosition = 10;
+	parameter comScoreLabelXPosition    = 82;
+	parameter comScoreLabelYPosition    = 10;
+	parameter midScoreDotsXPosition = (playerScoreLabelXPosition + comScoreLabelXPosition)/2; 
+	
+	wire [2:0] playerScoreXPosition;
+	wire [2:0] playerScoreYPosition;
+	wire [3:0] playerScorePosition;
+	wire playerScorePixel;
+	
+	assign playerScoreXPosition = x1 - playerScoreLabelXPosition;
+	assign playerScoreYPosition = y1 - playerScoreLabelYPosition;
+	assign playerScorePosition = 3*playerScoreYPosition + playerScoreXPosition;
 
-	wire dot;
+	wire [2:0] comScoreXPosition;
+	wire [2:0] comScoreYPosition;
+	wire [3:0] comScorePosition;
+	wire comScorePixel;
 	
-	wire [2:0] scoreXPosition;
-	wire [2:0] scoreYPosition;
-	wire [3:0] scorePosition;
+	assign comScoreXPosition = x1 - comScoreLabelXPosition;
+	assign comScoreYPosition = y1 - comScoreLabelYPosition;
+	assign comScorePosition = 3*comScoreYPosition + comScoreXPosition;
 	
-	assign scoreXPosition = x1 - 70;
-	assign scoreYPosition = y1 - 10;
-	assign scorePosition = 3*scoreYPosition + scoreXPosition;
+	reg [7:0] playerColor = 8'b11111111;
+	reg [7:0] ballColor = 8'b11111111;
+	reg [7:0] scoreColor = 8'b11111111;
+	reg [7:0] backgroundColor = 8'b0000000;
 
 	 
 	always //@( posedge CLK_IN ) // Si presenta problemas poner un reloj mula
 	begin
-		if( x1 >= 70 && 
-			 x1 <  73 && 
-			 y1 >= 10 && 
-			 y1 <  15 )
-			RGB_out = (dot == 1) ? 8'b11100000 : 8'b00011100 ; //  
-		else if( x1 >= ballX &&
+		if( x1 >= ballX &&
 			 x1 <  ballX + block && 
 			 y1 >= ballY &&
 			 y1 <  ballY + block )
-			 RGB_out = 8'b11111111;
+			 RGB_out = ballColor;
 		else if( x1 <= playerXPos && 
 					y1 < playerYPos + playerSize && 
 					y1 >= playerYPos )
-			RGB_out = 8'b11111111;
+			RGB_out = playerColor;
 		else if( x1 >= comXPos &&
 					y1 < comYPos + playerSize && 
 					y1 >= comYPos )
-			RGB_out = 8'b11111111;
+			RGB_out = playerColor;
+		else if( x1 >= playerScoreLabelXPosition && 
+			 x1 <  playerScoreLabelXPosition + 3 && 
+			 y1 >= playerScoreLabelYPosition && 
+			 y1 <  playerScoreLabelYPosition + 5 )
+			RGB_out = (playerScorePixel == 1) ? scoreColor : backgroundColor ;
+		else if( x1 >= comScoreLabelXPosition && 
+			 x1 <  comScoreLabelXPosition + 3 && 
+			 y1 >= comScoreLabelYPosition && 
+			 y1 <  comScoreLabelYPosition + 5 )
+			RGB_out = (comScorePixel == 1) ? scoreColor : backgroundColor ;
+		else if( x1 == midScoreDotsXPosition + 1 && 
+			(y1 == comScoreLabelYPosition + 1  
+			 || y1 == comScoreLabelYPosition + 3))
+				RGB_out = scoreColor ;
 		else
-			RGB_out = 8'b00000000;
+			RGB_out = backgroundColor;
 	end
 	
-	NumberGenerator generator(
-    .number(score), 
-    .position(scorePosition),
-	 .pixel(dot)
+	NumberGenerator playerScoreGenerator(
+    .number(playerScore), 
+    .position(playerScorePosition),
+	 .pixel(playerScorePixel)
+    );
+	 
+	 NumberGenerator comScoreGenerator(
+    .number(comScore), 
+    .position(comScorePosition),
+	 .pixel(comScorePixel)
     );
 	 
 endmodule

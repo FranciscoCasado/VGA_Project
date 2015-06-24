@@ -21,6 +21,7 @@
 module TopModule(
 	input CLK_IN,
 	input [1:0] BUTTONS,
+	input NORTH,
 	output H_SYNC,
 	output V_SYNC,
 	output [2:0] R,
@@ -45,13 +46,15 @@ module TopModule(
 	wire [9:0] x;
 	wire [9:0] y;
 	
-	wire [3:0] score;
+	wire [3:0] playerScore;
+	wire [3:0] comScore;
 	
 	reg GAME_CLOCK;
 	
 	
 	GameController controller(
     .GAME_CLK(V_SYNC), 
+	 .reset(NORTH),
     .BUTTONS(BUTTONS),
 	 .playerXPos_out(playerXPos),
 	 .comXPos_out(comXPos),
@@ -59,7 +62,8 @@ module TopModule(
 	 .comYPos_out(comYPos),
 	 .ballX_out(ballX),
 	 .ballY_out(ballY),
-	 .score(score)
+	 .playerScore(playerScore),
+	 .comScore(comScore)
     );
 
 	GameBuilder builder(
@@ -73,7 +77,8 @@ module TopModule(
 	 .ballX(ballX),
 	 .ballY(ballY),
     .RGB_out(RGB_tmp),
-	 .score(score)
+	 .playerScore(playerScore),
+	 .comScore(comScore)
     );
 
 

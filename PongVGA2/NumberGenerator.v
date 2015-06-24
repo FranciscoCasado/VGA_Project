@@ -47,15 +47,15 @@ module NumberGenerator
 	reg [2:0] h = 3'b111;
 	
 	// This are ordered backwards for correct display.
-	wire [14:0] zero  = {h,f,f,f,h} ;
+	wire [14:0] zero  = {h,f,f,f,h};
 	wire [14:0] one   = {c,c,c,g,c};
-	wire [14:0] two   = {h,e,d,f,h}; //{h,f,d,e,h}
+	wire [14:0] two   = {h,e,d,b,h}; //{h,f,d,e,h}
 	wire [14:0] three = {h,b,h,b,h}; //{h,b,h,b,h}
 	wire [14:0] four  = {b,b,h,f,f}; //{f,f,h,b,b}
 	wire [14:0] five  = {h,b,h,e,h}; //{h,e,h,b,h}
 	wire [14:0] six   = {h,f,h,e,h}; //{h,e,h,f,h}
 	wire [14:0] seven = {e,c,c,b,h}; //{h,b,c,c,e}
-	wire [14:0] eight = {h,f,h,f,h}; //{h,f,h,f,h}
+	wire [14:0] eight = {h,f,h,f,h};  //{h,f,h,f,h}
 	wire [14:0] nine  = {h,b,h,f,h}; //{h,f,h,b,h}	
 	
 	always@(number, position)
