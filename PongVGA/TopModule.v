@@ -43,8 +43,24 @@ module TopModule(
 	wire [9:0] x;
 	wire [9:0] y;
 	
+	reg GAME_CLOCK;
+	
+	integer counter  = 0;
+	
+	// Generate GameClock with V_SYNC
+	always @( posedge V_SYNC )
+	begin
+		if( counter == 5 )
+		begin
+			GAME_CLOCK = ~GAME_CLOCK;
+			counter = 0;
+		end
+		else
+			counter = counter + 1;
+	end
+	
 	GameController controller(
-    .GAME_CLK(V_SYNC), 
+    .GAME_CLK(GAME_CLOCK), 
     .BUTTONS(BUTTONS),
 	 .playerPos_out(playerPos),
 	 .comPos_out(comPos),

@@ -39,16 +39,16 @@ module GameBuilder(
 	parameter H = 15;
    parameter W = 20;	
 	 
-	always @( posedge CLK_IN ) // Si presenta problemas poner un reloj mula
+	always //@( posedge CLK_IN ) // Si presenta problemas poner un reloj mula
 	begin
 		if( x1 == ballX && y1 == ballY )
 			RGB_out = 8'b11111111;
 		else if( x1 == 0 && y1 <= playerPos + playerSize && y1 >= playerPos )
 			RGB_out = 8'b11111111;
-		else if( x1 == H - 1 && y1 <= comPos + playerSize && y1 >= comPos )
+		else if( x1 == W - 1 && y1 <= comPos + playerSize && y1 >= comPos )
 			RGB_out = 8'b11111111;
 		else
-			RGB_out = 8'b00000000;
+			RGB_out = 8'b11100011;
 	end
 	 
 endmodule

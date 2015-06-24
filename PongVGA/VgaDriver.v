@@ -96,7 +96,7 @@ module VgaDriver(
 		end
 		else
 		begin
-			RGB <= 8'b00011100;
+			RGB <= 8'b00000000;
 		end
 	end
 

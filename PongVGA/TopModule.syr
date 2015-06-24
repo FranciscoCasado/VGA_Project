@@ -10,7 +10,7 @@ Total CPU time to Xst completion: 0.28 secs
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.28 secs
+Total CPU time to Xst completion: 0.30 secs
  
 --> Reading design: TopModule.prj
 
@@ -160,6 +160,8 @@ Analyzing module <GameBuilder> in library <work>.
 	H = 32'sb00000000000000000000000000001111
 	W = 32'sb00000000000000000000000000010100
 	playerSize = 32'sb00000000000000000000000000000100
+WARNING:Xst:905 - "GameBuilder.v" line 43: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <x1>, <ballX>, <y1>, <ballY>, <playerPos>, <comPos>
 Module <GameBuilder> is correct for synthesis.
  
 Analyzing module <VgaDriver> in library <work>.
@@ -189,7 +191,6 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <GameController>.
     Related source file is "GameController.v".
-WARNING:Xst:653 - Signal <comPos> is used but never assigned. This sourceless signal will be automatically connected to value 0111.
 WARNING:Xst:1780 - Signal <ballVY<1:0>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <ballVX<1:0>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <ballNextY> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -204,32 +205,33 @@ WARNING:Xst:646 - Signal <ballNextX> is assigned but never used. This unconnecte
     Found 5-bit comparator less for signal <ballX$cmp_lt0000> created at line 104.
     Found 5-bit comparator less for signal <ballX$cmp_lt0001> created at line 121.
     Found 4-bit register for signal <ballY>.
-    Found 5-bit adder for signal <old_ballNextX_3$add0000> created at line 92.
-    Found 5-bit subtractor for signal <old_ballNextX_3$sub0000> created at line 92.
-    Found 4-bit adder for signal <old_ballNextY_5$add0000> created at line 93.
-    Found 4-bit subtractor for signal <old_ballNextY_5$sub0000> created at line 93.
-    Found 4-bit adder for signal <old_playerPos_1$add0001> created at line 70.
-    Found 4-bit adder carry out for signal <old_playerPos_1$addsub0000> created at line 69.
-    Found 4-bit comparator greater for signal <old_playerPos_1$cmp_gt0000> created at line 67.
-    Found 5-bit comparator less for signal <old_playerPos_1$cmp_lt0000> created at line 69.
-    Found 4-bit subtractor for signal <old_playerPos_1$sub0000> created at line 68.
-    Found 4-bit adder for signal <old_playerPos_4$add0001> created at line 78.
-    Found 4-bit adder carry out for signal <old_playerPos_4$addsub0000> created at line 77.
-    Found 5-bit comparator less for signal <old_playerPos_4$cmp_lt0000> created at line 77.
-    Found 4-bit subtractor for signal <old_playerPos_4$sub0000> created at line 76.
-    Found 4-bit register for signal <playerPos>.
+    Found 4-bit updown counter for signal <comPos>.
+    Found 5-bit adder for signal <old_ballNextX_1$add0000> created at line 92.
+    Found 5-bit subtractor for signal <old_ballNextX_1$sub0000> created at line 92.
+    Found 4-bit adder for signal <old_ballNextY_3$add0000> created at line 93.
+    Found 4-bit subtractor for signal <old_ballNextY_3$sub0000> created at line 93.
+    Found 4-bit adder carry out for signal <old_comPos_4$addsub0000> created at line 77.
+    Found 4-bit comparator greater for signal <old_comPos_4$cmp_gt0000> created at line 75.
+    Found 5-bit comparator less for signal <old_comPos_4$cmp_lt0000> created at line 77.
+    Found 4-bit addsub for signal <old_comPos_4$share0000>.
+    Found 4-bit adder carry out for signal <old_playerPos_2$addsub0000> created at line 69.
+    Found 4-bit comparator greater for signal <old_playerPos_2$cmp_gt0000> created at line 67.
+    Found 5-bit comparator less for signal <old_playerPos_2$cmp_lt0000> created at line 69.
+    Found 4-bit addsub for signal <old_playerPos_2$share0000>.
+    Found 4-bit updown counter for signal <playerPos>.
     Summary:
-	inferred  15 D-type flip-flop(s).
-	inferred  12 Adder/Subtractor(s).
-	inferred   7 Comparator(s).
+	inferred   2 Counter(s).
+	inferred  11 D-type flip-flop(s).
+	inferred  10 Adder/Subtractor(s).
+	inferred   8 Comparator(s).
 Unit <GameController> synthesized.
 
 
 Synthesizing Unit <GameBuilder>.
     Related source file is "GameBuilder.v".
+WARNING:Xst:647 - Input <CLK_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <xCoord<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <yCoord<4:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 8-bit register for signal <RGB_out>.
     Found 4-bit adder carry out for signal <RGB_out$addsub0002> created at line 46.
     Found 4-bit adder carry out for signal <RGB_out$addsub0003> created at line 48.
     Found 5-bit comparator equal for signal <RGB_out$cmp_eq0000> created at line 44.
@@ -239,7 +241,6 @@ WARNING:Xst:647 - Input <yCoord<4:0>> is never used. This port will be preserved
     Found 5-bit comparator lessequal for signal <RGB_out$cmp_le0000> created at line 46.
     Found 5-bit comparator lessequal for signal <RGB_out$cmp_le0001> created at line 48.
     Summary:
-	inferred   8 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   6 Comparator(s).
 Unit <GameBuilder> synthesized.
@@ -275,32 +276,40 @@ Unit <VgaDriver> synthesized.
 
 Synthesizing Unit <TopModule>.
     Related source file is "TopModule.v".
+    Found 32-bit up counter for signal <counter>.
+    Found 1-bit register for signal <GAME_CLOCK>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
 Unit <TopModule> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 20
+# Adders/Subtractors                                   : 18
  10-bit adder carry out                                : 2
  10-bit subtractor                                     : 4
- 4-bit adder                                           : 3
+ 4-bit adder                                           : 1
  4-bit adder carry out                                 : 6
- 4-bit subtractor                                      : 3
+ 4-bit addsub                                          : 2
+ 4-bit subtractor                                      : 1
  5-bit adder                                           : 1
  5-bit subtractor                                      : 1
-# Counters                                             : 2
+# Counters                                             : 5
  10-bit up counter                                     : 2
-# Registers                                            : 7
- 1-bit register                                        : 3
- 4-bit register                                        : 2
+ 32-bit up counter                                     : 1
+ 4-bit updown counter                                  : 2
+# Registers                                            : 6
+ 1-bit register                                        : 4
+ 4-bit register                                        : 1
  5-bit register                                        : 1
- 8-bit register                                        : 1
-# Comparators                                          : 19
+# Comparators                                          : 20
  10-bit comparator greatequal                          : 2
  10-bit comparator less                                : 4
- 4-bit comparator greater                              : 3
+ 4-bit comparator greater                              : 4
  5-bit comparator equal                                : 2
  5-bit comparator greatequal                           : 2
  5-bit comparator less                                 : 4
@@ -312,28 +321,30 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <RGB_out_0> in Unit <builder> is equivalent to the following 7 FFs/Latches, which will be removed : <RGB_out_1> <RGB_out_2> <RGB_out_3> <RGB_out_4> <RGB_out_5> <RGB_out_6> <RGB_out_7> 
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 20
+# Adders/Subtractors                                   : 18
  10-bit adder carry out                                : 2
  10-bit subtractor                                     : 4
- 4-bit adder                                           : 3
+ 4-bit adder                                           : 1
  4-bit adder carry out                                 : 6
- 4-bit subtractor                                      : 3
+ 4-bit addsub                                          : 2
+ 4-bit subtractor                                      : 1
  5-bit adder                                           : 1
  5-bit subtractor                                      : 1
-# Counters                                             : 2
+# Counters                                             : 5
  10-bit up counter                                     : 2
-# Registers                                            : 24
- Flip-Flops                                            : 24
-# Comparators                                          : 19
+ 32-bit up counter                                     : 1
+ 4-bit updown counter                                  : 2
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# Comparators                                          : 20
  10-bit comparator greatequal                          : 2
  10-bit comparator less                                : 4
- 4-bit comparator greater                              : 3
+ 4-bit comparator greater                              : 4
  5-bit comparator equal                                : 2
  5-bit comparator greatequal                           : 2
  5-bit comparator less                                 : 4
@@ -344,7 +355,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <RGB_out_0> in Unit <GameBuilder> is equivalent to the following 7 FFs/Latches, which will be removed : <RGB_out_1> <RGB_out_2> <RGB_out_3> <RGB_out_4> <RGB_out_5> <RGB_out_6> <RGB_out_7> 
 
 Optimizing unit <TopModule> ...
 
@@ -356,7 +366,7 @@ Optimizing unit <VgaDriver> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block TopModule, actual ratio is 2.
+Found area constraint ratio of 100 (+ 5) on block TopModule, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -364,8 +374,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 37
- Flip-Flops                                            : 37
+# Registers                                            : 73
+ Flip-Flops                                            : 73
 
 =========================================================================
 
@@ -394,32 +404,32 @@ Design Statistics
 # IOs                              : 13
 
 Cell Usage :
-# BELS                             : 327
+# BELS                             : 475
 #      GND                         : 1
-#      INV                         : 20
-#      LUT1                        : 39
-#      LUT2                        : 7
-#      LUT2_D                      : 3
-#      LUT2_L                      : 1
-#      LUT3                        : 26
-#      LUT3_D                      : 1
+#      INV                         : 24
+#      LUT1                        : 70
+#      LUT2                        : 15
+#      LUT2_D                      : 2
+#      LUT2_L                      : 5
+#      LUT3                        : 23
+#      LUT3_D                      : 4
 #      LUT3_L                      : 1
-#      LUT4                        : 86
-#      LUT4_D                      : 6
-#      LUT4_L                      : 14
-#      MUXCY                       : 54
-#      MUXF5                       : 13
+#      LUT4                        : 110
+#      LUT4_D                      : 13
+#      LUT4_L                      : 7
+#      MUXCY                       : 93
+#      MUXF5                       : 19
+#      MUXF6                       : 1
 #      VCC                         : 1
-#      XORCY                       : 54
-# FlipFlops/Latches                : 37
-#      FD                          : 3
-#      FDE                         : 6
-#      FDR                         : 13
+#      XORCY                       : 86
+# FlipFlops/Latches                : 73
+#      FD                          : 4
+#      FDE                         : 11
+#      FDR                         : 45
 #      FDRE                        : 10
 #      FDRS                        : 3
-#      FDS                         : 2
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
 # IO Buffers                       : 12
 #      IBUF                        : 2
@@ -431,12 +441,12 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      110  out of   4656     2%  
- Number of Slice Flip Flops:             37  out of   9312     0%  
- Number of 4 input LUTs:                204  out of   9312     2%  
+ Number of Slices:                      143  out of   4656     3%  
+ Number of Slice Flip Flops:             73  out of   9312     0%  
+ Number of 4 input LUTs:                274  out of   9312     2%  
  Number of IOs:                          13
  Number of bonded IOBs:                  13  out of    232     5%  
- Number of GCLKs:                         2  out of     24     8%  
+ Number of GCLKs:                         3  out of     24    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -456,13 +466,14 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+-----------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)       | Load  |
------------------------------------+-----------------------------+-------+
-V_SYNC_OBUF(driver/V_SYNC13_f5:O)  | NONE(*)(controller/ballVX_2)| 16    |
-driver/PXL_CLK1                    | BUFG                        | 20    |
-CLK_IN                             | BUFGP                       | 1     |
------------------------------------+-----------------------------+-------+
+-----------------------------------+--------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)    | Load  |
+-----------------------------------+--------------------------+-------+
+V_SYNC_OBUF1(driver/V_SYNC13_f5:O) | BUFG(*)(GAME_CLOCK)      | 33    |
+GAME_CLOCK                         | NONE(controller/comPos_3)| 19    |
+driver/PXL_CLK1                    | BUFG                     | 20    |
+CLK_IN                             | BUFGP                    | 1     |
+-----------------------------------+--------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -476,9 +487,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 11.093ns (Maximum Frequency: 90.147MHz)
-   Minimum input arrival time before clock: 10.953ns
-   Maximum output required time after clock: 8.828ns
+   Minimum period: 11.383ns (Maximum Frequency: 87.850MHz)
+   Minimum input arrival time before clock: 10.576ns
+   Maximum output required time after clock: 17.472ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -486,62 +497,92 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'V_SYNC_OBUF'
-  Clock period: 11.093ns (frequency: 90.147MHz)
-  Total number of paths / destination ports: 3913 / 27
+Timing constraint: Default period analysis for Clock 'V_SYNC_OBUF1'
+  Clock period: 5.240ns (frequency: 190.857MHz)
+  Total number of paths / destination ports: 1585 / 66
 -------------------------------------------------------------------------
-Delay:               11.093ns (Levels of Logic = 7)
-  Source:            controller/playerPos_2 (FF)
-  Destination:       controller/ballX_4 (FF)
-  Source Clock:      V_SYNC_OBUF rising
-  Destination Clock: V_SYNC_OBUF rising
+Delay:               5.240ns (Levels of Logic = 9)
+  Source:            counter_8 (FF)
+  Destination:       counter_0 (FF)
+  Source Clock:      V_SYNC_OBUF1 rising
+  Destination Clock: V_SYNC_OBUF1 rising
 
-  Data Path: controller/playerPos_2 to controller/ballX_4
+  Data Path: counter_8 to counter_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             10   0.591   1.057  controller/playerPos_2 (controller/playerPos_2)
-     LUT2_D:I0->O          1   0.704   0.424  controller/_old_playerPos_1<0>_SW0 (N40)
-     LUT4_D:I3->O          5   0.704   0.712  controller/_old_playerPos_1<0> (controller/Madd_old_playerPos_4_add0001_cy<0>)
-     LUT4:I1->O            1   0.704   0.424  controller/ballX_cmp_lt0000_SW2 (N79)
-     LUT4:I3->O            3   0.704   0.566  controller/ballX_cmp_lt0000 (controller/ballX_cmp_lt00001)
-     LUT4:I2->O            7   0.704   0.712  controller/ballVX_2_not000127 (controller/ballVX_2_not000127)
-     LUT4_L:I3->LO         1   0.704   0.135  controller/ballX_and00001_SW0 (N94)
-     LUT3:I2->O            5   0.704   0.633  controller/ballX_and00001 (controller/ballX_and0000)
+     FDR:C->Q              2   0.591   0.622  counter_8 (counter_8)
+     LUT4:I0->O            1   0.704   0.000  GAME_CLOCK_cmp_eq0000_wg_lut<0> (GAME_CLOCK_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<0> (GAME_CLOCK_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<1> (GAME_CLOCK_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<2> (GAME_CLOCK_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<3> (GAME_CLOCK_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<4> (GAME_CLOCK_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<5> (GAME_CLOCK_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  GAME_CLOCK_cmp_eq0000_wg_cy<6> (GAME_CLOCK_cmp_eq0000_wg_cy<6>)
+     MUXCY:CI->O          33   0.331   1.263  GAME_CLOCK_cmp_eq0000_wg_cy<7> (GAME_CLOCK_cmp_eq0000)
+     FDR:R                     0.911          counter_0
+    ----------------------------------------
+    Total                      5.240ns (3.355ns logic, 1.885ns route)
+                                       (64.0% logic, 36.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'GAME_CLOCK'
+  Clock period: 11.383ns (frequency: 87.850MHz)
+  Total number of paths / destination ports: 10070 / 36
+-------------------------------------------------------------------------
+Delay:               11.383ns (Levels of Logic = 9)
+  Source:            controller/ballX_1 (FF)
+  Destination:       controller/ballX_1 (FF)
+  Source Clock:      GAME_CLOCK rising
+  Destination Clock: GAME_CLOCK rising
+
+  Data Path: controller/ballX_1 to controller/ballX_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             14   0.591   1.175  controller/ballX_1 (controller/ballX_1)
+     LUT2_D:I0->LO         1   0.704   0.104  controller/Madd_old_ballNextX_1_add0000_cy<1>11 (N209)
+     LUT4:I3->O            2   0.704   0.451  controller/old_ballNextX_1_cmp_eq00011 (controller/old_ballNextX_1_cmp_eq0001)
+     LUT4:I3->O            6   0.704   0.673  controller/_old_ballNextY_3<0>1 (controller/_old_ballNextY_3<0>)
+     LUT4:I3->O            1   0.704   0.000  controller/ballX_cmp_gt00001_F (N153)
+     MUXF5:I0->O           4   0.321   0.622  controller/ballX_cmp_gt00001 (controller/ballX_cmp_gt00001)
+     LUT3:I2->O            1   0.704   0.000  controller/ballX_or00004 (controller/ballX_or00004)
+     MUXF5:I0->O           1   0.321   0.000  controller/ballX_or0000_f5_0 (controller/ballX_or0000_f51)
+     MUXF6:I0->O           8   0.521   0.836  controller/ballX_or0000_f6 (controller/ballX_or0000)
+     LUT2:I1->O            5   0.704   0.633  controller/ballX_and00001 (controller/ballX_and0000)
      FDR:R                     0.911          controller/ballX_0
     ----------------------------------------
-    Total                     11.093ns (6.430ns logic, 4.663ns route)
-                                       (58.0% logic, 42.0% route)
+    Total                     11.383ns (6.889ns logic, 4.494ns route)
+                                       (60.5% logic, 39.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'driver/PXL_CLK1'
-  Clock period: 9.464ns (frequency: 105.664MHz)
+  Clock period: 9.069ns (frequency: 110.266MHz)
   Total number of paths / destination ports: 2710 / 50
 -------------------------------------------------------------------------
-Delay:               9.464ns (Levels of Logic = 9)
-  Source:            driver/H_COUNT_4 (FF)
-  Destination:       driver/V_COUNT_9 (FF)
+Delay:               9.069ns (Levels of Logic = 7)
+  Source:            driver/H_COUNT_7 (FF)
+  Destination:       driver/H_COUNT_9 (FF)
   Source Clock:      driver/PXL_CLK1 rising
   Destination Clock: driver/PXL_CLK1 rising
 
-  Data Path: driver/H_COUNT_4 to driver/V_COUNT_9
+  Data Path: driver/H_COUNT_7 to driver/H_COUNT_9
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              5   0.591   0.808  driver/H_COUNT_4 (driver/H_COUNT_4)
-     LUT1:I0->O            1   0.704   0.000  driver/Madd_H_COUNT_addsub0000_cy<4>_rt (driver/Madd_H_COUNT_addsub0000_cy<4>_rt)
-     MUXCY:S->O            1   0.464   0.000  driver/Madd_H_COUNT_addsub0000_cy<4> (driver/Madd_H_COUNT_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  driver/Madd_H_COUNT_addsub0000_cy<5> (driver/Madd_H_COUNT_addsub0000_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  driver/Madd_H_COUNT_addsub0000_cy<6> (driver/Madd_H_COUNT_addsub0000_cy<6>)
-     MUXCY:CI->O           1   0.059   0.000  driver/Madd_H_COUNT_addsub0000_cy<7> (driver/Madd_H_COUNT_addsub0000_cy<7>)
-     XORCY:CI->O           1   0.804   0.424  driver/Madd_H_COUNT_addsub0000_xor<8> (driver/H_COUNT_addsub0000<8>)
-     LUT4:I3->O            1   0.704   0.424  driver/V_COUNT_and0000116_SW1 (N99)
-     LUT4:I3->O           21   0.704   1.163  driver/V_COUNT_and0000143 (driver/H_COUNT_cmp_eq0000)
-     LUT3:I2->O           10   0.704   0.882  driver/V_COUNT_and000057 (driver/V_COUNT_and0000)
-     FDRE:R                    0.911          driver/V_COUNT_0
+     FDR:C->Q              9   0.591   0.995  driver/H_COUNT_7 (driver/H_COUNT_7)
+     LUT1:I0->O            1   0.704   0.000  driver/Madd_H_COUNT_addsub0000_cy<7>_rt (driver/Madd_H_COUNT_addsub0000_cy<7>_rt)
+     MUXCY:S->O            1   0.464   0.000  driver/Madd_H_COUNT_addsub0000_cy<7> (driver/Madd_H_COUNT_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Madd_H_COUNT_addsub0000_cy<8> (driver/Madd_H_COUNT_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.459   0.595  driver/Madd_H_COUNT_addsub0000_cy<9> (driver/Madd_H_COUNT_index0000)
+     LUT3:I0->O            1   0.704   0.455  driver/V_COUNT_and000019 (driver/V_COUNT_and000019)
+     LUT4:I2->O            2   0.704   0.622  driver/V_COUNT_and0000123 (driver/V_COUNT_and0000123)
+     LUT2:I0->O           20   0.704   1.102  driver/V_COUNT_and0000142 (driver/H_COUNT_cmp_eq0000)
+     FDR:R                     0.911          driver/H_COUNT_0
     ----------------------------------------
-    Total                      9.464ns (5.763ns logic, 3.701ns route)
-                                       (60.9% logic, 39.1% route)
+    Total                      9.069ns (5.300ns logic, 3.769ns route)
+                                       (58.4% logic, 41.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_IN'
@@ -565,84 +606,102 @@ Delay:               1.949ns (Levels of Logic = 0)
                                        (77.1% logic, 22.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'V_SYNC_OBUF'
-  Total number of paths / destination ports: 753 / 16
+Timing constraint: Default OFFSET IN BEFORE for Clock 'GAME_CLOCK'
+  Total number of paths / destination ports: 852 / 28
 -------------------------------------------------------------------------
-Offset:              10.953ns (Levels of Logic = 8)
-  Source:            BUTTONS<0> (PAD)
-  Destination:       controller/ballX_4 (FF)
-  Destination Clock: V_SYNC_OBUF rising
+Offset:              10.576ns (Levels of Logic = 9)
+  Source:            BUTTONS<1> (PAD)
+  Destination:       controller/ballX_1 (FF)
+  Destination Clock: GAME_CLOCK rising
 
-  Data Path: BUTTONS<0> to controller/ballX_4
+  Data Path: BUTTONS<1> to controller/ballX_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            10   1.218   0.961  BUTTONS_0_IBUF (BUTTONS_0_IBUF)
-     LUT3:I1->O            1   0.704   0.000  controller/_old_playerPos_1<1>_G (N144)
-     MUXF5:I1->O           5   0.321   0.712  controller/_old_playerPos_1<1> (controller/Madd_old_playerPos_4_add0001_lut<1>)
-     LUT3:I1->O            3   0.704   0.535  controller/Madd_add0000_addsub0000_cy<2>11 (controller/N10)
-     LUT4:I3->O            4   0.704   0.591  controller/Madd_add0000_addsub0000_lut<3>1 (controller/Madd_add0000_addsub0000_lut<3>)
-     LUT4:I3->O            7   0.704   0.712  controller/ballVX_2_not000127 (controller/ballVX_2_not000127)
-     LUT4_L:I3->LO         1   0.704   0.135  controller/ballX_and00001_SW0 (N94)
-     LUT3:I2->O            5   0.704   0.633  controller/ballX_and00001 (controller/ballX_and0000)
-     FDR:R                     0.911          controller/ballX_0
+     IBUF:I->O            11   1.218   1.108  BUTTONS_1_IBUF (BUTTONS_1_IBUF)
+     LUT4:I0->O            3   0.704   0.535  controller/old_comPos_4_and0000 (controller/comPos_not0003_inv)
+     LUT4:I3->O            2   0.704   0.526  controller/_old_comPos_4<1>1 (controller/_old_comPos_4<1>)
+     LUT4:I1->O            1   0.704   0.455  controller/ballX_cmp_gt00012 (controller/ballX_cmp_gt00011)
+     LUT3_D:I2->LO         1   0.704   0.135  controller/ballX_cmp_gt00011_SW0 (N210)
+     LUT3:I2->O            2   0.704   0.451  controller/ballX_cmp_gt00011 (controller/ballX_cmp_gt0001)
+     LUT4_D:I3->O          4   0.704   0.591  controller/ballX_or00011 (controller/ballX_or0001)
+     LUT4:I3->O            1   0.704   0.000  controller/ballX_mux0000<3>_G (N150)
+     MUXF5:I1->O           1   0.321   0.000  controller/ballX_mux0000<3> (controller/ballX_mux0000<3>)
+     FDR:D                     0.308          controller/ballX_1
     ----------------------------------------
-    Total                     10.953ns (6.674ns logic, 4.279ns route)
-                                       (60.9% logic, 39.1% route)
+    Total                     10.576ns (6.775ns logic, 3.801ns route)
+                                       (64.1% logic, 35.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'driver/PXL_CLK1'
-  Total number of paths / destination ports: 190 / 10
+  Total number of paths / destination ports: 4144 / 10
 -------------------------------------------------------------------------
-Offset:              8.828ns (Levels of Logic = 4)
-  Source:            driver/V_COUNT_3 (FF)
+Offset:              17.472ns (Levels of Logic = 16)
+  Source:            driver/V_COUNT_1 (FF)
   Destination:       G<2> (PAD)
   Source Clock:      driver/PXL_CLK1 rising
 
-  Data Path: driver/V_COUNT_3 to G<2>
+  Data Path: driver/V_COUNT_1 to G<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.591   0.844  driver/V_COUNT_3 (driver/V_COUNT_3)
-     LUT3:I0->O            1   0.704   0.595  driver/RGB_cmp_lt0001121 (driver/RGB_cmp_lt0001121)
-     LUT3:I0->O            7   0.704   0.883  driver/RGB_cmp_lt0001135 (driver/RGB_cmp_lt0001)
-     LUT4:I0->O            3   0.704   0.531  driver/RGB<4>1 (G_0_OBUF)
+     FDRE:C->Q             4   0.591   0.762  driver/V_COUNT_1 (driver/V_COUNT_1)
+     LUT1:I0->O            1   0.704   0.000  driver/Msub_yCoord_addsub0000_cy<1>_rt (driver/Msub_yCoord_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  driver/Msub_yCoord_addsub0000_cy<1> (driver/Msub_yCoord_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Msub_yCoord_addsub0000_cy<2> (driver/Msub_yCoord_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.804   0.595  driver/Msub_yCoord_addsub0000_xor<3> (driver/yCoord_addsub0000<3>)
+     LUT1:I0->O            1   0.704   0.000  driver/Msub_yCoord_addsub0001_cy<3>_rt (driver/Msub_yCoord_addsub0001_cy<3>_rt)
+     MUXCY:S->O            1   0.464   0.000  driver/Msub_yCoord_addsub0001_cy<3> (driver/Msub_yCoord_addsub0001_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Msub_yCoord_addsub0001_cy<4> (driver/Msub_yCoord_addsub0001_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  driver/Msub_yCoord_addsub0001_cy<5> (driver/Msub_yCoord_addsub0001_cy<5>)
+     XORCY:CI->O           1   0.804   0.595  driver/Msub_yCoord_addsub0001_xor<6> (driver/yCoord_addsub0001<6>)
+     LUT2:I0->O            5   0.704   0.808  driver/yCoord<6>1 (y<6>)
+     LUT4:I0->O            1   0.704   0.424  builder/RGB_out_cmp_ge00011 (builder/RGB_out_cmp_ge00011)
+     LUT4:I3->O            1   0.704   0.455  builder/RGB_out<3>26 (builder/RGB_out<3>26)
+     LUT4:I2->O            1   0.704   0.499  builder/RGB_out<3>117 (builder/RGB_out<3>117)
+     LUT4:I1->O            1   0.704   0.595  builder/RGB_out<3>480 (RGB_tmp<2>)
+     LUT3:I0->O            3   0.704   0.531  driver/RGB<4>1 (G_0_OBUF)
      OBUF:I->O                 3.272          G_0_OBUF (G<0>)
     ----------------------------------------
-    Total                      8.828ns (5.975ns logic, 2.853ns route)
-                                       (67.7% logic, 32.3% route)
+    Total                     17.472ns (12.208ns logic, 5.264ns route)
+                                       (69.9% logic, 30.1% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'V_SYNC_OBUF'
-  Total number of paths / destination ports: 8 / 8
+Timing constraint: Default OFFSET OUT AFTER for Clock 'GAME_CLOCK'
+  Total number of paths / destination ports: 93 / 3
 -------------------------------------------------------------------------
-Offset:              5.822ns (Levels of Logic = 2)
-  Source:            builder/RGB_out_0 (FF)
-  Destination:       B<1> (PAD)
-  Source Clock:      V_SYNC_OBUF rising
+Offset:              12.409ns (Levels of Logic = 7)
+  Source:            controller/ballX_2 (FF)
+  Destination:       G<2> (PAD)
+  Source Clock:      GAME_CLOCK rising
 
-  Data Path: builder/RGB_out_0 to B<1>
+  Data Path: controller/ballX_2 to G<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS:C->Q              2   0.591   0.622  builder/RGB_out_0 (builder/RGB_out_0)
-     LUT4:I0->O            5   0.704   0.633  driver/RGB<7>1 (B_0_OBUF)
-     OBUF:I->O                 3.272          B_0_OBUF (B<0>)
+     FDRS:C->Q            15   0.591   1.192  controller/ballX_2 (controller/ballX_2)
+     LUT4:I0->O            1   0.704   0.499  builder/RGB_out<3>414_SW0 (N163)
+     LUT4:I1->O            1   0.704   0.455  builder/RGB_out<3>414 (builder/RGB_out<3>414)
+     LUT4:I2->O            1   0.704   0.595  builder/RGB_out<3>444 (builder/RGB_out<3>444)
+     LUT4:I0->O            1   0.704   0.455  builder/RGB_out<3>466 (builder/RGB_out<3>466)
+     LUT4:I2->O            1   0.704   0.595  builder/RGB_out<3>480 (RGB_tmp<2>)
+     LUT3:I0->O            3   0.704   0.531  driver/RGB<4>1 (G_0_OBUF)
+     OBUF:I->O                 3.272          G_0_OBUF (G<0>)
     ----------------------------------------
-    Total                      5.822ns (4.567ns logic, 1.255ns route)
-                                       (78.4% logic, 21.6% route)
+    Total                     12.409ns (8.087ns logic, 4.322ns route)
+                                       (65.2% logic, 34.8% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 30.00 secs
-Total CPU time to Xst completion: 30.50 secs
+Total REAL time to Xst completion: 33.00 secs
+Total CPU time to Xst completion: 33.50 secs
  
 --> 
 
-Total memory usage is 261864 kilobytes
+Total memory usage is 294760 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   11 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 

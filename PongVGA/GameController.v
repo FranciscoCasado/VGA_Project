@@ -73,9 +73,9 @@ module GameController(
 		// Com movement
 		begin
 			if( !comAction && comPos > 0 )
-				playerPos = playerPos - 1;
+				comPos = comPos - 1;
 			else if( comAction && comPos + playerSize < H - 1 )
-				playerPos = playerPos + 1;
+				comPos = comPos + 1;
 		end
 		
 		// Pre calculate Next Ball Pos without players
@@ -115,10 +115,10 @@ module GameController(
 				ballY = ( ballVY[2] == 0 ) ? ballY - 1 : ballY + 1;
 			end
 		end
-		// Check whether a collision may occur with player
-		else if( ballNextX == H - 1 && ballVX[2] == 1 )
+		// Check whether a collision may occur with com
+		else if( ballNextX == W - 1 && ballVX[2] == 1 )
 		begin
-			if( playerPos > ballNextY || playerPos + playerSize < ballNextY )
+			if( comPos > ballNextY || comPos + playerSize < ballNextY )
 			begin
 				// Ball Escaped Collision
 				ballX = ballNextX;
@@ -137,6 +137,7 @@ module GameController(
 			ballX = ballNextX;
 			ballY = ballNextY;
 		end
+		
 	end
 	
 
