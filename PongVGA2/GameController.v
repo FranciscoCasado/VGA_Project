@@ -43,11 +43,11 @@ module GameController(
 	parameter block = 4;
 	parameter playerSize = 8*block;
 	 
-	reg [7:0] ballX = 100;
-	reg [6:0] ballY = 100;
+	reg [7:0] ballX = 80;
+	reg [6:0] ballY = 60;
 	
 	wire play;
-	assign play = (playerScore != 9 && comScore !=9);
+	assign play = (playerScore != 10 && comScore !=10);
 	
 	assign ballX_out = ballX;
 	assign ballY_out = ballY;
@@ -95,6 +95,8 @@ module GameController(
 			begin
 				playerScore_reg = 0;
 				comScore_reg    = 0;
+				ballX = 80;
+				ballY = 60;
 			end
 		end
 		else

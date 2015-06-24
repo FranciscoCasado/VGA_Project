@@ -49,7 +49,7 @@ module NumberGenerator
 	// This are ordered backwards for correct display.
 	wire [14:0] zero  = {h,f,f,f,h};
 	wire [14:0] one   = {c,c,c,g,c};
-	wire [14:0] two   = {h,e,d,b,h}; //{h,f,d,e,h}
+	wire [14:0] two   = {h,e,h,b,h}; //{h,f,d,e,h}
 	wire [14:0] three = {h,b,h,b,h}; //{h,b,h,b,h}
 	wire [14:0] four  = {b,b,h,f,f}; //{f,f,h,b,b}
 	wire [14:0] five  = {h,b,h,e,h}; //{h,e,h,b,h}
