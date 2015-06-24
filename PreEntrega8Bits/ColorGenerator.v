@@ -34,17 +34,21 @@ module ColorGenerator(
 		if( button && !button_last )
 		begin
 			case( channel)
-				2'b00: channel = 2'b01;
-				2'b01: channel = 2'b10;
-				2'b10: channel = 2'b00;
+				2'b00: channel <= 2'b01;
+				2'b01: channel <= 2'b10;
+				2'b10: channel <= 2'b00;
 			endcase
 		end
-		button_last = button;
+		button_last <= button;
 		
 		case( channel )
-			2'b00: RGB_out[7:5] = SWITCHES;
-			2'b01: RGB_out[4:2] = SWITCHES;
-			2'b10: RGB_out[1:0] = SWITCHES[1:0];
+			
+			2'b00: RGB_out[7:5] <= SWITCHES;
+			2'b01: RGB_out[4:2] <= SWITCHES;
+			2'b10: RGB_out[1:0] <= SWITCHES[1:0];
+			/*2'b00: RGB_out = 8'b11100000;
+			2'b01: RGB_out = 8'b00011100;
+			2'b10: RGB_out = 8'b00000011;*/
 		endcase
 		
 	end
