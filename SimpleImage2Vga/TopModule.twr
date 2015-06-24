@@ -45,14 +45,14 @@ Clock CLK_IN to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-B<0>        |   13.895(R)|CLK_IN_BUFGP      |   0.000|
-B<1>        |   13.366(R)|CLK_IN_BUFGP      |   0.000|
-G<0>        |   13.320(R)|CLK_IN_BUFGP      |   0.000|
-G<1>        |   13.618(R)|CLK_IN_BUFGP      |   0.000|
-G<2>        |   13.379(R)|CLK_IN_BUFGP      |   0.000|
-R<0>        |   14.131(R)|CLK_IN_BUFGP      |   0.000|
-R<1>        |   14.300(R)|CLK_IN_BUFGP      |   0.000|
-R<2>        |   13.457(R)|CLK_IN_BUFGP      |   0.000|
+B<0>        |   14.373(R)|CLK_IN_BUFGP      |   0.000|
+B<1>        |   13.622(R)|CLK_IN_BUFGP      |   0.000|
+G<0>        |   12.758(R)|CLK_IN_BUFGP      |   0.000|
+G<1>        |   13.368(R)|CLK_IN_BUFGP      |   0.000|
+G<2>        |   14.118(R)|CLK_IN_BUFGP      |   0.000|
+R<0>        |   13.346(R)|CLK_IN_BUFGP      |   0.000|
+R<1>        |   14.068(R)|CLK_IN_BUFGP      |   0.000|
+R<2>        |   15.324(R)|CLK_IN_BUFGP      |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock CLK_IN
@@ -60,11 +60,11 @@ Clock to Setup on destination clock CLK_IN
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_IN         |    2.232|         |         |         |
+CLK_IN         |    2.211|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Jun 08 22:51:16 2015 
+Analysis completed Tue Jun 09 13:15:04 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
