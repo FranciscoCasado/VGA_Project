@@ -1,8 +1,0 @@
-xst -intstyle ise -ifn "C:/VGAProject/PongVGA/GameController.xst" -ofn "C:/VGAProject/PongVGA/GameController.syr" 
-xst -intstyle ise -ifn "C:/VGAProject/PongVGA/GameController.xst" -ofn "C:/VGAProject/PongVGA/GameController.syr" 
-xst -intstyle ise -ifn "C:/VGAProject/PongVGA/GameController.xst" -ofn "C:/VGAProject/PongVGA/GameController.syr" 
-xst -intstyle ise -ifn "C:/VGAProject/PongVGA/GameController.xst" -ofn "C:/VGAProject/PongVGA/GameController.syr" 
-xst -intstyle ise -ifn "C:/VGAProject/PongVGA/GameController.xst" -ofn "C:/VGAProject/PongVGA/GameController.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 GameController.ngc GameController.ngd  
-map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o GameController_map.ncd GameController.ngd GameController.pcf 
-vhdtdtfi -lang verilog -prj PongVGA -o C:/VGAProject/PongVGA/GameController.tfi -lib work C:/VGAProject/PongVGA//GameController.v -module GameController -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 
