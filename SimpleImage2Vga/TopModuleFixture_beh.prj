@@ -1,6 +1,0 @@
-verilog work "ipcore_dir/img_buffer.v"
-verilog work "VgaDriver.v"
-verilog work "ImageController.v"
-verilog work "TopModule.v"
-verilog work "TopModuleFixture.v"
-verilog work "C:/Xilinx/13.4/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,1 +1,0 @@
-vhdtdtfi -lang verilog -prj SimpleImage2Vga -o "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga/ImageController.tfi" -lib work "C:/Users/K n z o/Documents/Xilinx/SimpleImage2Vga//ImageController.v" -module ImageController -template C:/Xilinx/13.4/ISE_DS/ISE//data/tfi.tft -deleteonerror 

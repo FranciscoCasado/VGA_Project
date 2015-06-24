@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/VGAProject/SimpleImage2Vga/TopModuleFixture_isim_beh.exe" -prj "C:/VGAProject/SimpleImage2Vga/TopModuleFixture_beh.prj" "work.TopModuleFixture" "work.glbl" 
