@@ -38,7 +38,7 @@ module TopModule(
 	assign LED = RGB;
 	
 	ColorGenerator generator (
-	 .CLK_IN(CLK_IN),
+	 .CLK_IN(V_SYNC),
     .SWITCHES(SW), 
     .button(BUTTON), 
     .RGB_out(RGB_tmp)

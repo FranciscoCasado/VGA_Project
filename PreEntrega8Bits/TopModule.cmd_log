@@ -24,3 +24,21 @@ ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s500e-fg320-4 
 map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TopModule_map.ncd TopModule.ngd TopModule.pcf 
 par -w -intstyle ise -ol high -t 1 TopModule_map.ncd TopModule.ncd TopModule.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TopModule.twx TopModule.ncd -o TopModule.twr TopModule.pcf -ucf ports.ucf 
+xst -intstyle ise -ifn "C:/VGAProject/PreEntrega8Bits/TopModule.xst" -ofn "C:/VGAProject/PreEntrega8Bits/TopModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s500e-fg320-4 TopModule.ngc TopModule.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TopModule_map.ncd TopModule.ngd TopModule.pcf 
+par -w -intstyle ise -ol high -t 1 TopModule_map.ncd TopModule.ncd TopModule.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TopModule.twx TopModule.ncd -o TopModule.twr TopModule.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f TopModule.ut TopModule.ncd 
+xst -intstyle ise -ifn "C:/VGAProject/PreEntrega8Bits/TopModule.xst" -ofn "C:/VGAProject/PreEntrega8Bits/TopModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s500e-fg320-4 TopModule.ngc TopModule.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TopModule_map.ncd TopModule.ngd TopModule.pcf 
+par -w -intstyle ise -ol high -t 1 TopModule_map.ncd TopModule.ncd TopModule.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TopModule.twx TopModule.ncd -o TopModule.twr TopModule.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f TopModule.ut TopModule.ncd 
+xst -intstyle ise -ifn "C:/VGAProject/PreEntrega8Bits/TopModule.xst" -ofn "C:/VGAProject/PreEntrega8Bits/TopModule.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s500e-fg320-4 TopModule.ngc TopModule.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o TopModule_map.ncd TopModule.ngd TopModule.pcf 
+par -w -intstyle ise -ol high -t 1 TopModule_map.ncd TopModule.ncd TopModule.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml TopModule.twx TopModule.ncd -o TopModule.twr TopModule.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f TopModule.ut TopModule.ncd 
